@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <meta name="baidu-tc-cerfication" content="55c603db1cd78c7f7ab7686162824f23">
+    <title>文化周</title>
+    <link rel="stylesheet" type="text/css" href="../../css/core/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/core/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cultureweek/style.css"/>
+    <style type="text/css">
+    #index-c1 .swiper-slide{height: auto}
+    </style>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        var fontSize = 17 * (clientWidth / 320);
+                        fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                        docEl.style.fontSize = fontSize + 'px';
+                        var dpi = window.devicePixelRatio;
+                        docEl.setAttribute('data-dpi', dpi);
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+    <article class="pre-wrap index-wrap">
+        <div class="swiper-container swiper-container-vertical" id="index-c">
+            <div class="swiper-wrapper" style="transition-duration: 0ms;">
+                <div class="swiper-slide swiper-slide-prev index-wrap">
+                    <div class="page1">
+                        <img src="../../images/cultureweek/index_bg.jpg" class="page1_imgbg">
+                        <img src="../../images/cultureweek/index_kv.png" class="page1_img1 abs">
+                        <img src="../../images/cultureweek/index_logo.png" class="page1_img2 abs">
+                        <img src="../../images/cultureweek/icon_down.png" class="page1_down abs arrow">
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-active index-wrap">
+                    <div class="swiper-container swiper-container-vertical swiper-container-free-mode" id="index-c1">
+                        <div class="swiper-wrapper">
+                             <div class="swiper-slide swiper-slide-active">
+                                 <div class="page2">
+                                    <div class="pre">
+                                        <img src="../../images/cultureweek/page2_bg_01.jpg" class="page2_imgbg">
+                                        <img src="../../images/cultureweek/index_kv.png" class="page2_img1 abs">
+                                    </div>
+                                    <div class="pre">
+                                        <img src="../../images/cultureweek/page2_bg_02.jpg" class="page2_imgbg">
+                                        <a href="merchandiseshow.html"><img src="../../images/cultureweek/page2_icon1.png" class="page2_imgicon right abs"></a>
+                                        <a href="merchandiseshow.html"><img src="../../images/cultureweek/page2_icon2.png" class="page2_imgicon left abs"></a>
+                                        <!-- <a href="merchandiseshow.html" class="page2_lable right"><span>美丽唐卡，先睹为快</span><i></i></a>
+                                        <a href="merchandiseshow.html" class="page2_lable left"><i></i><span>美丽唐卡，先睹为快</span></a> -->
+                                    </div>
+                                    <div class="pre">
+                                        <img src="../../images/cultureweek/page2_bg_03.jpg" class="page2_imgbg">
+                                        <a href="merchandiseshow.html"><img src="../../images/cultureweek/page2_icon3.png" class="page2_imgicon right2 abs"></a>
+                                        <a href="merchandiseshow.html"><img src="../../images/cultureweek/page2_icon4.png" class="page2_imgicon left2 abs"></a>
+                                    </div>
+                                    <div class="pre">
+                                        <img src="../../images/cultureweek/page2_bg_04.jpg" class="page2_imgbg">
+                                        <a href="testdrive.html"><img src="../../images/cultureweek/page2_car.png" class="page2_imgcar abs"></a>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                        <div class="swiper-scrollbar" style="opacity: 0;"><div class="swiper-scrollbar-drag" style="height: 176.4px;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+<div class="landscape_tip"><p>请竖屏使用</p></div>
+<script type="text/javascript" src="../../js/lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/lib/swiper.min.js"></script>
+<script type="text/javascript" src="../../js/utils/core.js"></script>
+<script type="text/javascript" src="../../js/product/cultureweek/common.js"></script>
+<script type="text/javascript">
+    cw.render('index');
+</script>
+</body>
+</html>
