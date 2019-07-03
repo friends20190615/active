@@ -14,7 +14,6 @@ public class CookieUtil {
 
 	public static void addCookie(String key, String value,
                                  HttpServletResponse response) {
-		
 		try {
 			Cookie cookie  = new Cookie(key, URLEncoder.encode(value,"utf-8"));
 			cookie.setPath("/");

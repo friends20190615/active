@@ -171,6 +171,18 @@ body {
 	left: 0;
 	z-index: 2
 }
+.ms-wrap a.a-introduce{
+	position: absolute;
+	left:5%;
+	top:52%;
+	display: block;
+	width:33%;
+	z-index: 21
+}
+.ms-wrap a.a-introduce img{
+	width:100%;
+	height: auto;
+}
 
 img.page_black_down {
 	width: 8%;
@@ -319,8 +331,35 @@ img.page_black_down {
 .enroll_wrap .but button img {
 	width: 100%
 }
-
-.EInvitationLetter_wrap {
+#md-sc{
+	z-index: 3
+}
+.EInvitationLetter_wrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	top:0;
+	left: 0;
+	opacity: 0;
+	text-align: center;
+    visibility: hidden;
+    -webkit-transition: opacity .4s 0s,visibility 0s .4s;
+    -moz-transition: opacity .4s 0s,visibility 0s .4s;
+    transition: opacity .4s 0s,visibility 0s .4s;
+    background-color: #000;
+    z-index: 2
+}
+.EInvitationLetter_wrap.visibilitypage {
+	height: auto;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .4s 0s,visibility 0s 0s;
+    -moz-transition: opacity .4s 0s,visibility 0s 0s;
+    transition: opacity .4s 0s,visibility 0s 0s;
+    z-index: 5
+}
+#contbox{
 	position: relative;
 	width: 100%;
 	text-align: center;
@@ -378,6 +417,31 @@ img.page_black_down {
 	font-weight: 700
 }
 
+.EInvitationLetter_wrap .eil_sinfo{
+	text-align: center;
+	font-size: 0.5rem;
+	line-height: 1rem;
+	color:#fff;
+	padding-top:1.5rem;
+	letter-spacing: 2px;
+	padding-bottom:1rem;
+}
+.EInvitationLetter_wrap .eil_sinfo .sdata{
+	padding-bottom:0.5rem;
+}
+.EInvitationLetter_wrap .eil_sinfo .sdata span{
+	display: block;
+	font-size: 0.65rem;
+}
+.EInvitationLetter_wrap img#down1{
+	opacity: 0;
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width: 100%;
+	height: auto;
+	z-index: 10;
+}
 .tdpage {
 	position: absolute;
 	width: 100%;
@@ -412,6 +476,14 @@ img.page_black_down {
 	top: 100%;
 	-webkit-transform: translate(-50%,-170%);
 	transform: translate(-50%,-170%)
+}
+
+.tdpage1 img.img_icon,.tdpage2 img.img_icon {
+	width:72%;
+	top:72%;
+	left:3%;
+	-webkit-transform: translate(0,-100%);
+	transform: translate(0,-100%)
 }
 
 .tdpage img.down {
@@ -711,7 +783,30 @@ img.page_black_down {
 	border-radius: .5rem;
 	color: #fff
 }
-
+.presentation_wrap{
+	position:absolute;
+	top:21%;
+	width:92%;
+	height:78%;
+	overflow-y: auto;
+	left:4%;
+	font-size: 0.4rem;
+	line-height: 0.7rem;
+	color: #000000;
+	background: rgba(255,255,255,0.71);
+	z-index: 30;
+}
+.presentation_wrap dl{
+	padding:0 0.4rem;
+}
+.presentation_wrap dt{
+	font-weight: bold;
+	padding-top:0.6rem;
+}
+.presentation_wrap dd p{
+	padding-top:0.6rem;
+	font-weight: bold;
+}
 @-webkit-keyframes passdown {
 	0% {
 		bottom: 2%;

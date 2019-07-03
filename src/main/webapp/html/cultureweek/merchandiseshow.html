@@ -50,6 +50,8 @@
                             <img src="../../images/cultureweek/merchandise_show_6.png" class="abs right zoomIn6">
                             <img src="../../images/cultureweek/merchandise_show_8.png" class="left zoomIn7" style="position: relative;z-index: 20">
                             <img src="../../images/cultureweek/merchandise_show_9.png" class="abs right zoomIn8">
+                            <a href="presentation.html" class="a-introduce zoomIn9"><img src="../../images/cultureweek/merchandise_show_a.png"></a>
+
                         </div>
                     </div>
                     <img src="../../images/cultureweek/icon_black_down.png" class="page_black_down abs arrow">
@@ -61,23 +63,23 @@
                             <ul>
                                 <li>
                                     <label>姓名<i></i></label>
-                                    <span><input id="name" name="name" type="type" data-error="姓名不能为空" placeholder="请输入您的姓名" maxlength="10" /></span>
+                                    <span><input id="name" name="name" type="type" class="tatipt" data-error="姓名不能为空" placeholder="请输入您的姓名" maxlength="10" /></span>
                                 </li>
                                 <li>
                                     <label>手机号<i></i></label>
-                                    <span><input id="mobile" name="" type="tel" data-error="手机号不能为空" placeholder="请输入您的手机号" maxlength="11" /></span>
+                                    <span><input id="mobile"  type="tel" class="tatipt" data-error="手机号不能为空" placeholder="请输入您的手机号" maxlength="11" /></span>
                                 </li>
                                 <li>
                                     <label>您的年龄:<i></i></label>
-                                    <span class="down"><input id="dategroup" name="" type="type" placeholder="请选择" readonly="readonly" /></span>
+                                    <span class="down"><input id="dategroup" type="type" data-error="请选择出生日期" placeholder="请选择" readonly="readonly" /></span>
                                 </li>
                                 <li>
                                     <label>您所在行业:<i></i></label>
-                                    <span class="down"><input id="business" name="" type="type" placeholder="请选择" readonly="readonly" data-title="选择你所在行业" /></span>
+                                    <span class="down"><input id="business"  type="type" data-error="请选择行业" placeholder="请选择" readonly="readonly" data-title="选择你所在行业" /></span>
                                 </li>
                                 <li>
                                     <label>参观时间:<i></i></label>
-                                    <span class="down"><input id="visitingtime" name="" type="type" placeholder="请选择" readonly="readonly" data-title="选择参观时间"/></span>
+                                    <span class="down"><input id="visitingtime" type="type" data-error="请选择参观时间" placeholder="请选择" readonly="readonly" data-title="选择参观时间"/></span>
                                 </li>
                             </ul>
                         </div>
@@ -88,25 +90,34 @@
                 </div>
             </div>
         </div>
-        <div class="EInvitationLetter_wrap" style="display: none;">
-            <img src="../../images/cultureweek/eil_title.png">
-            <img src="../../images/cultureweek/index_kv.png" class="img_kv">
-            <div style="padding-top:1.6rem;padding-bottom:1.2rem"><img src="../../images/cultureweek/eil_time.png" class="img_time"></div>
-            <div class="ewm">
-                <img src="../../images/cultureweek/eil_erweima.png" class="img_ewm">
-                扫码领取lohas商城<br>50元代金券
+        <div class="EInvitationLetter_wrap">
+            <img id="down1" class="wimg downimg" src="../../images/cultureweek/screenShot.png" style="width:100%;">
+            <div id="contbox">
+                <img src="../../images/cultureweek/eil_title.png">
+                <img src="../../images/cultureweek/index_kv.png" class="img_kv">
+                <div class="eil_sinfo">
+                    <div class="sdata"></div>
+                    <p>上海市黄浦区建国中路10号ZIWU誌屋</p>
+                </div>
+                <div class="ewm">
+                    <img src="../../images/cultureweek/eil_erweima.png" class="img_ewm">
+                    扫码领取lohas商城<br>50元代金券
+                </div>
+                <img src="../../images/cultureweek/eil_logo.png" class="img_logo">
+                <img src="../../images/cultureweek/eil_guidepost.png">
             </div>
-            <img src="../../images/cultureweek/eil_logo.png" class="img_logo">
-            <img src="../../images/cultureweek/eil_guidepost.png">
             <div class="but_wrap">
                 <a href="testdrive.html">预约参加路虎试驾</a>
             </div>
         </div>
     </article>
+    
+<div class="landscape_tip"><p>请竖屏使用</p></div>
 <script type="text/javascript" src="../../js/lib/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../../js/lib/rolldate.min.js"></script>
 <script type="text/javascript" src="../../js/lib/picker.min.js"></script>
 <script type="text/javascript" src="../../js/lib/swiper.min.js"></script>
+<script type="text/javascript" src="../../js/lib/html2canvas.min.js"></script>
 <script type="text/javascript" src="../../js/utils/core.js"></script>
 <script type="text/javascript" src="../../js/product/cultureweek/common.js"></script>
 <script type="text/javascript">

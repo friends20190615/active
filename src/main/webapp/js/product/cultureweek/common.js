@@ -1,17 +1,3 @@
-/*info：information 信息
-imp: important重要的
-init： initialization初始化、最初的
-del：delete 删除
-rm：remove移除
-add：增加
-insert：插入
-create：创建
-fn：function函数
-update：修改
-select：查询选择
-query：获取
-get：获取
-con：content内容 */
 var cw = (function() {
 	var bili = 750 / 1334, //0.56  0.388  
         $wh = $(window).height(),
@@ -249,6 +235,7 @@ var cw = (function() {
 				});
 
 				picker.on('picker.select', function (selectedVal, selectedIndex) {
+					$(nameEl).parents("li").find("i").html("");
 					switch(id)
 					{
 					    case "business":
@@ -296,7 +283,36 @@ var cw = (function() {
 			      var arr = str.split(',');
 			      picker.selectedIndex=arr;
 			  	}
-        	}
+        	},
+        	screenShot:function (targetDom,cb){
+		        var copyDom = targetDom;
+		        //copyDom.css('display','block');
+		        //$('body').append(copyDom);
+		        var width = copyDom.width();
+		        var height = copyDom.height();
+		        var scale = 2;//放大倍数
+		        var canvas = document.createElement('canvas');
+		        canvas.width = width*scale;
+		        canvas.height = height*scale;
+		        var content = canvas.getContext("2d");
+		        content.scale(scale,scale);
+		        var rect = copyDom.get(0).getBoundingClientRect();
+		        content.translate(-rect.left,-rect.top);
+		        html2canvas(copyDom, {
+		            allowTaint:true,
+		            tainTest:true,
+		            scale:scale,
+		            canvas:canvas,
+		            width:width,
+		            heigth:height,
+		            onrendered: function(canvas) {
+		                if(cb){
+		                    //copyDom.css('display','none');
+		                    cb(canvas.toDataURL("image/png"),width,height);
+		                }
+		            }
+		        });
+		    }
         },
         getCon={
         	ajax:function(type,callback){
@@ -344,11 +360,11 @@ var cw = (function() {
 								callback(data);
 							}
 	                    }else{
-	                        _person.tools.Dialog.toast({content: data.msg});
+	                        _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
 	                    }
 	                },  
 	                error:function(jqXHR, textStatus, errorThrown){
-	                    _person.tools.Dialog.toast({content: data.msg});
+	                    _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
 	                }  
 	            });*/
         	}
@@ -364,6 +380,9 @@ var cw = (function() {
 				        paginationClickable: true,
 				        direction: 'vertical'
 				    });
+				    if($ww < $wh){
+						$(".enroll_wrap").css("height",$wh);
+					}
 					//tools.verification("#name");
 					$("#business").on("click",function(){
 						tools.selectP("business");
@@ -379,9 +398,35 @@ var cw = (function() {
 						if(!tools.verification("#mobile")){
 							return false
 						}
+						if(!tools.verification("#dategroup")){
+							return false
+						}
+						if(!tools.verification("#business")){
+							return false
+						}
+						if(!tools.verification("#visitingtime")){
+							return false
+						}
 						getCon.ajax(null,function(){
 							$("#md-sc").hide();
-	            			$(".EInvitationLetter_wrap").fadeIn("slow");
+							var visitingtime = $("#visitingtime").val(),
+								search = "日";
+								start = visitingtime.indexOf(search);//获得字符串的开始位置
+								dd= visitingtime.substr(0,start),
+								afternoon = visitingtime.substr(-2),
+								weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
+								day = '2019-7-'+dd,
+								week = "周"+weekArray[new Date(day).getDay()];
+							$(".sdata").html("<span>2019.7."+dd+"</span>"+week+afternoon);
+	            			$(".EInvitationLetter_wrap").addClass("visibilitypage");
+	            			setTimeout(function(){ 
+	            				tools.screenShot($('#contbox'),function (canvas,width,height) {
+						            document.querySelector('#down1').src = canvas;
+						            document.querySelector('#down1').style.width = width+"px";
+						            document.querySelector('#down1').style.height = height+"px";
+						        });
+	            			},1000);
+	            			
 						});
 					})
 					$(".tatipt").on("input",function(){
@@ -397,7 +442,6 @@ var cw = (function() {
         					that.parents("li").find("i").html(tips);
 				        }
 				    })
-
 				}
 			},
 			testdrive:{
@@ -411,6 +455,7 @@ var cw = (function() {
 				        	console.log(swiper.activeIndex)
 				        	$(".tdpage .img_bg").removeClass("animated fadeInLeft");
 				        	$(".tdpage .img_kv").removeClass("zoomIn4");
+				        	$(".tdpage .img_icon").removeClass("fadeInLeft2");
 				        	$(".tdpage .td-a").removeClass("animated jello");
 				        	$(".tdpage .img_w1").removeClass("fadeInLeft1");
 				    		$(".tdpage .img_w2").removeClass("fadeInLeft2");
@@ -418,9 +463,11 @@ var cw = (function() {
 					    	if(swiper.activeIndex == 0){
 					    		$(".tdpage1 .img_bg").addClass("animated fadeInLeft");
 					    		$(".tdpage1 .img_kv").addClass("zoomIn4");
+					    		$(".tdpage1 .img_icon").addClass("fadeInLeft2");
 					    	}else if(swiper.activeIndex == 1){
 					    		$(".tdpage2 .img_bg").addClass("animated fadeInLeft");
 					    		$(".tdpage2 .img_kv").addClass("zoomIn4");
+					    		$(".tdpage2 .img_icon").addClass("fadeInLeft2");
 					    	}else if(swiper.activeIndex == 2 ){
 					    		$(".tdpage3 .img_w1").addClass("fadeInLeft1");
 					    		$(".tdpage3 .img_w2").addClass("fadeInLeft2");
@@ -439,7 +486,7 @@ var cw = (function() {
 					    	}
 					    }
 				    });
-					$("#vehicletype").on("click",function(){
+					/*$("#vehicletype").on("click",function(){
 						tools.selectP("vehicletype");
 					})
 					$("#handler").on("click",function(){
@@ -478,7 +525,7 @@ var cw = (function() {
 							
 							$(".td_signUp_wrap").hide();
 							var idnumberval = $("#idnumber").val();
-							idnumberval = idnumberval.substr(0,1)+"****"+idnumberval.substr(-5);
+							idnumberval = idnumberval.substr(0,1)+"***********"+idnumberval.substr(-5);
 							$(".sname").html($("#name").val());
 							$(".sidnumber").html(idnumberval);
 							$(".scoupontpl").html($("#vehicletype").val());
@@ -504,7 +551,7 @@ var cw = (function() {
 				    $(".td-a").on("click",function(){
 				    	$("#td-sc").hide();
 				    	$(".td_signUp_wrap").fadeIn("slow");
-				    })
+				    })*/
 				}
 			},
 			index:{
