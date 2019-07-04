@@ -4,6 +4,17 @@ var cw = (function() {
         $ww = $(window).width(),
         $zwwh = $(".zwtbtb").height();
         tools = {
+        	audioAutoPlay : function(id){
+		        var audio = document.getElementById(id),
+		            play = function(){
+		                audio.play();
+		                document.removeEventListener("touchstart",play,false);
+		            };
+		        //audio.play();
+		        document.addEventListener("WeixinJSBridgeReady",function(){
+		            play()
+		        },false);
+		    },
         	screen:function(){
         		if($ww/$wh < bili){
 					$(".pre-wrap").addClass("ms_abs");
@@ -14,7 +25,7 @@ var cw = (function() {
         	},
         	rolldate:function(){
         		var lang = {
-					title: '自定义标题',
+					title: '选择出生日期',
 					cancel: '取消',
 					confirm: '确认',
 					year: '年',
@@ -28,7 +39,10 @@ var cw = (function() {
 					format: 'YYYY-MM-DD',
 					beginYear: 1500,
 					endYear:year,
-					lang: lang
+					lang: lang,
+				    init: function() {
+						$("#dategroup").blur(function(){$("keyboard").hide();});
+					}
 				})
         	},
         	verification:function(type){
@@ -415,7 +429,7 @@ var cw = (function() {
 								dd= visitingtime.substr(0,start),
 								afternoon = visitingtime.substr(-2),
 								weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
-								day = '2019-7-'+dd,
+								day = '2019/7/'+dd,
 								week = "周"+weekArray[new Date(day).getDay()];
 							$(".sdata").html("<span>2019.7."+dd+"</span>"+week+afternoon);
 	            			$(".EInvitationLetter_wrap").addClass("visibilitypage");
@@ -441,7 +455,11 @@ var cw = (function() {
 				        	var tips = that.attr("data-error");
         					that.parents("li").find("i").html(tips);
 				        }
+				        setTimeout(function() {
+				            $(window).scrollTop(0);
+				        }, 100);
 				    })
+				    tools.audioAutoPlay("music_audio");
 				}
 			},
 			testdrive:{
@@ -486,6 +504,7 @@ var cw = (function() {
 					    	}
 					    }
 				    });
+				    tools.audioAutoPlay("music_audio");
 					/*$("#vehicletype").on("click",function(){
 						tools.selectP("vehicletype");
 					})
@@ -598,6 +617,7 @@ var cw = (function() {
 						}
 
 					});
+					tools.audioAutoPlay("music_audio");
 				}
 			}
 

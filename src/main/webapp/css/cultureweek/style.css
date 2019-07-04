@@ -35,8 +35,8 @@ body {
 }
 
 .page1 img.page1_img1 {
-	width: 58%;
-	height: auto;
+	width: auto;
+	height: 60%;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-70%);
@@ -213,11 +213,8 @@ img.page_black_down {
 }
 
 .ms_h100 .ms-wrap img.right {
-	left: 100%;
-	-webkit-transform: translate(-100%,0);
-	transform: translate(-100%,0)
+	right: 0;
 }
-
 .enroll_wrap {
 	position: relative;
 	height: 100%;
@@ -324,8 +321,8 @@ img.page_black_down {
 	top: 50%;
 	left: 50%;
 	background: 0 0;
-	-webkit-transform: translate(-50%,-80%);
-	transform: translate(-50%,-80%)
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%)
 }
 
 .enroll_wrap .but button img {
@@ -790,7 +787,7 @@ img.page_black_down {
 	height:78%;
 	overflow-y: auto;
 	left:4%;
-	font-size: 0.4rem;
+	font-size: 0.47rem;
 	line-height: 0.7rem;
 	color: #000000;
 	background: rgba(255,255,255,0.71);
@@ -954,9 +951,7 @@ img.page_black_down {
 }
 
 @media screen and (orientation:landscape) {
-	.landscape_tip {
-		display: block
-	}
+
 }
 
 @-webkit-keyframes fadeInLeft {
