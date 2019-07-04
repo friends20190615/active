@@ -330,18 +330,18 @@ var cw = (function() {
         },
         getCon={
         	ajax:function(type,callback){
-        		if(callback) {
+        		/*if(callback) {
 					callback();
 				}
-        		return;
-        		/*$(".enroll_wrap").hide();
+        		return;*/
+        		$(".enroll_wrap").hide();
 	            $(".EInvitationLetter_wrap").fadeIn("slow");
         		var name = $("#name").val(),
 	        		mobile = $("#mobile").val(),
 	        		dategroup = $("#dategroup").val(),
 	        		business = $("#business").val(),
 	        		visitingtime = $("#visitingtime").val(),
-	        		url="报名参观接口";
+	        		url="/active/visit/newMember.do";
 	            var param = {
 	                name:name,
 	                mobile:mobile,
@@ -349,14 +349,14 @@ var cw = (function() {
 	                business:business,
 	                visitingtime:visitingtime
 	            };
-	            if(type=="testdrive"){
+	            /*if(type=="testdrive"){
 	        		url="试驾申请接口";
 	        		param.idnumber = $("#idnumber").val();
 	        		param.vehicletype = $("#vehicletype").val();
 	        		param.handler = $("#handler").val();
 	        		param.city = $("#city").val();
 	        		param.dealer = $("#dealer").val();
-	        	}
+	        	}*/
 	            $.ajax({  
 	                async:false,  
 	                type: "POST", 
@@ -380,9 +380,9 @@ var cw = (function() {
 	                error:function(jqXHR, textStatus, errorThrown){
 	                    _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
 	                }  
-	            });*/
+	            });
         	}
-        }
+        };
 	return {
 		views:{
 			merchandiseshow:{
