@@ -433,7 +433,7 @@ var cw = (function() {
 	                    }
 	                },  
 	                error:function(jqXHR, textStatus, errorThrown){
-	                    _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
+	                    _person.tools.Dialog.alert({title:"",content:"服务器繁忙",contentAlign:"ac"});
 	                }  
 	            });
         	}
