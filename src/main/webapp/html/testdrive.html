@@ -16,6 +16,11 @@
     <link rel="stylesheet" type="text/css" href="../css/core/reset.css"/>
     <link rel="stylesheet" type="text/css" href="../css/core/swiper.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/cultureweek/style.css"/>
+    <style type="text/css">
+        .swiper-container-v {
+            background: #eee;
+        }
+    </style>
     <script type="text/javascript">
         (function (doc, win) {
             var docEl = doc.documentElement,
@@ -38,7 +43,75 @@
 <body>
     <article class="pre-wrap">
         <img src="../images/cultureweek/zw.png" class="zwtbtb">
-        <div class="swiper-container" id="td-sc">
+        <div class="swiper-container swiper-container-v">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-container swiper-container-h1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="tdpage tdpage1">
+                                    <div class="pre">
+                                        <img src="../images/cultureweek/testdrive_page1_bg.jpg" class="img_bg fadeInLeft animated">
+                                        <img src="../images/cultureweek/testdrive_kv.png" class="abs img_kv">
+                                        <a href="http://clickc.admaster.com.cn/c/a112779,b3554765,c2132,i0,m101,8a2,8b2,h"><img src="../images/cultureweek/testdrive_icon.png" class="abs img_icon fadeInLeft2"></a>
+                                        <img src="../images/cultureweek/testdrive_page_logo.png" class="abs img_logo">
+                                        <img src="../images/cultureweek/icon_down.png" class="down abs arrow">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="tdpage tdpage2">
+                                    <div class="pre">
+                                        <img src="../images/cultureweek/testdrive_page2_bg.jpg" class="img_bg">
+                                        <img src="../images/cultureweek/testdrive_kv.png" class="abs img_kv">
+                                        <a href="http://clickc.admaster.com.cn/c/a112779,b3554765,c2132,i0,m101,8a2,8b2,h"><img src="../images/cultureweek/testdrive_icon.png" class="abs img_icon"></a>
+                                        <img src="../images/cultureweek/testdrive_page_logo.png" class="abs img_logo">
+                                        <img src="../images/cultureweek/icon_down.png" class="down abs arrow">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-container swiper-container-h2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="tdpage tdpage3">
+                                    <div class="pre">
+                                        <img src="../images/cultureweek/testdrive_atrs1_img3.png" class="img_w1">
+                                        <img src="../images/cultureweek/testdrive_atrs1_img4.png" class="img_w2">
+                                        <img src="../images/cultureweek/testdrive_atrs1_img5.png" class="img_w3">
+                                        <a href="http://clickc.admaster.com.cn/c/a112779,b3554765,c2132,i0,m101,8a2,8b2,h" class="td-a">活动报名</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="tdpage tdpage4">
+                                    <div class="pre">
+                                        <img src="../images/cultureweek/testdrive_atrs2_img1.png" class="img_w1">
+                                        <img src="../images/cultureweek/testdrive_atrs2_img2.png" class="img_w2">
+                                        <img src="../images/cultureweek/testdrive_atrs2_img3.png" class="img_w3">
+                                        <a href="http://clickc.admaster.com.cn/c/a112779,b3554765,c2132,i0,m101,8a2,8b2,h" class="td-a">活动报名</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="tdpage tdpage5">
+                                    <div class="pre">
+                                        <img src="../images/cultureweek/testdrive_atrs3_img1.png" class="img_w1">
+                                        <img src="../images/cultureweek/testdrive_atrs3_img2.png" class="img_w2">
+                                        <img src="../images/cultureweek/testdrive_atrs3_img3.png" class="img_w3">
+                                        <a href="http://clickc.admaster.com.cn/c/a112779,b3554765,c2132,i0,m101,8a2,8b2,h" class="td-a">活动报名</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="swiper-container" id="td-sc">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="tdpage tdpage1">
@@ -95,8 +168,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="td_signUp_wrap" style="display: none">
+        </div> -->
+
+
+
+
+        <!--试驾 <div class="td_signUp_wrap" style="display: none">
             <img src="../images/cultureweek/testdrive_signup_ban.jpg">
             <p>路虎中国在此承诺：您在网站上提供的个人信息不会出售给任何第三方。您的信息可能被路虎中国，以及其代理商或经销商用作分析研究，提供您所需的服务，向您发出产品和服务的消息，以便改善我们的服务。请填写您的真实信息，方便我们尽快安排您的试驾。</p>
             <ul>
@@ -153,6 +230,18 @@
 <script type="text/javascript" src="../js/product/cultureweek/common.js"></script>
 <script type="text/javascript">
     cw.render('testdrive');
+/*    var swiperH = new Swiper('.swiper-container-h', {
+        paginationClickable: true,
+        spaceBetween: 50,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+    var swiperV = new Swiper('.swiper-container-v', {
+        paginationClickable: true,
+        direction: 'vertical',
+        spaceBetween: 100
+    });*/
 </script>
 </body>
 </html>

@@ -521,7 +521,92 @@ var cw = (function() {
 			testdrive:{
 				init:function(){
 					tools.screen();//页面高度
-					var swiper = new Swiper('#td-sc', {
+					var swiperH1 = new Swiper('.swiper-container-h1', {
+				        paginationClickable: true,
+				        spaceBetween: 50,
+				        centeredSlides: true,
+				        autoplay: 2500,
+				        autoplayDisableOnInteraction: false,
+				        onInit: function(swiper){
+					      $(".tdpage1 .img_bg").addClass("animated fadeInLeft");
+					    $(".tdpage1 .img_icon").addClass("fadeInLeft2");
+					    },
+				        onSlideChangeStart: function(swiper){
+				        	console.log('ttt:',swiper.activeIndex)
+				        	$(".tdpage .img_bg").removeClass("animated fadeInLeft");
+				        	$(".tdpage .img_icon").removeClass("fadeInLeft2");
+				        	if(swiper.activeIndex == 0){
+					    		$(".tdpage1 .img_bg").addClass("animated fadeInLeft");
+					    		$(".tdpage1 .img_icon").addClass("fadeInLeft2");
+					    	}else if(swiper.activeIndex == 1){
+					    		$(".tdpage2 .img_bg").addClass("animated fadeInLeft");
+					    		$(".tdpage2 .img_icon").addClass("fadeInLeft2");
+					    	}
+				        }
+				    });
+				    var swiperH2 = new Swiper('.swiper-container-h2', {
+				        paginationClickable: true,
+				        spaceBetween: 50,
+				        centeredSlides: true,
+				        autoplay: 2500,
+				        autoplayDisableOnInteraction: true,
+				        onInit: function(swiper){
+					      swiper.stopAutoplay();
+					    },
+				        onSlideChangeStart: function(swiper){
+				        	console.log('ttt2:',swiper.activeIndex)
+				        	$(".tdpage .td-a").removeClass("animated jello");
+				        	$(".tdpage .img_w1").removeClass("fadeInLeft1");
+				    		$(".tdpage .img_w2").removeClass("fadeInLeft2");
+				    		$(".tdpage .img_w3").removeClass("zoomIn4");
+				        	if(swiper.activeIndex == 0 ){
+					    		$(".tdpage3 .img_w1").addClass("fadeInLeft1");
+					    		$(".tdpage3 .img_w2").addClass("fadeInLeft2");
+					    		$(".tdpage3 .img_w3").addClass("zoomIn4");
+					    		$(".tdpage3 .td-a").addClass("animated jello");
+					    	}else if(swiper.activeIndex == 1){
+					    		$(".tdpage4 .img_w1").addClass("fadeInLeft1");
+					    		$(".tdpage4 .img_w2").addClass("fadeInLeft2");
+					    		$(".tdpage4 .img_w3").addClass("zoomIn4");
+					    		$(".tdpage4 .td-a").addClass("animated jello");
+					    	}else if(swiper.activeIndex == 2){
+					    		$(".tdpage5 .img_w1").addClass("fadeInLeft1");
+					    		$(".tdpage5 .img_w2").addClass("fadeInLeft2");
+					    		$(".tdpage5 .img_w3").addClass("zoomIn4");
+					    		$(".tdpage5 .td-a").addClass("animated jello");
+					    	}
+				        }
+				    });
+				    var swiperV = new Swiper('.swiper-container-v', {
+				        paginationClickable: true,
+				        direction: 'vertical',
+				        spaceBetween: 100,
+				        onSlideChangeStart: function(swiper){
+				        	swiperH2.stopAutoplay();
+				        	$(".tdpage .img_bg").removeClass("animated fadeInLeft");
+				        	$(".tdpage .img_icon").removeClass("fadeInLeft2");
+				        	$(".tdpage .td-a").removeClass("animated jello");
+				        	$(".tdpage .img_w1").removeClass("fadeInLeft1");
+				    		$(".tdpage .img_w2").removeClass("fadeInLeft2");
+				    		$(".tdpage .img_w3").removeClass("zoomIn4");
+				        	if(swiper.activeIndex == 0){
+				        		swiperH1.startAutoplay();
+				        		swiperH2.stopAutoplay();
+					    		$(".tdpage1 .img_bg").addClass("animated fadeInLeft");
+					    		$(".tdpage1 .img_icon").addClass("fadeInLeft2");
+					    		$(".tdpage2 .img_bg").addClass("animated fadeInLeft");
+					    		$(".tdpage2 .img_icon").addClass("fadeInLeft2");
+					    	}else if(swiper.activeIndex == 1){
+					    		swiperH2.startAutoplay();
+					    		swiperH1.stopAutoplay();
+					    		$(".tdpage3 .img_w1").addClass("fadeInLeft1");
+					    		$(".tdpage3 .img_w2").addClass("fadeInLeft2");
+					    		$(".tdpage3 .img_w3").addClass("zoomIn4");
+					    		$(".tdpage3 .td-a").addClass("animated jello");
+					    	}
+				        }
+				    });
+					/*var swiper = new Swiper('#td-sc', {
 				        pagination: '.swiper-pagination',
 				        paginationClickable: true,
 				        direction: 'vertical',
@@ -556,7 +641,10 @@ var cw = (function() {
 					    		$(".tdpage5 .td-a").addClass("animated jello");
 					    	}
 					    }
-				    });
+				    });*/
+
+
+
 					/*$("#vehicletype").on("click",function(){
 						tools.selectP("vehicletype");
 					})
