@@ -35,25 +35,24 @@
     </script>
 </head>
 <body>
-    <article class="pre-wrap index-wrap" style="height: auto">
+    <article class="pre-wrap index-wrap">
         <div class="page2">
             <div class="pre">
                 <img src="../images/cultureweek/page2_bg_01.jpg" class="page2_imgbg">
+                <img src="../images/cultureweek/page2_cloud_1.png" class="page2_cloud1 abs">
                 <img src="../images/cultureweek/index_kv.png" class="page2_img1 abs">
             </div>
             <div class="pre">
                 <img src="../images/cultureweek/page2_bg_02.jpg" class="page2_imgbg">
+                <img src="../images/cultureweek/page2_cloud_2.png" class="page2_cloud2 abs">
                 <img src="../images/cultureweek/page2_icon1.png" class="page2_imgicon right abs">
                 <img src="../images/cultureweek/page2_icon2.png" class="page2_imgicon left abs">
             </div>
             <div class="pre">
                 <img src="../images/cultureweek/page2_bg_03.jpg" class="page2_imgbg">
+                <img src="../images/cultureweek/page2_cloud_3.png" class="page2_cloud3 abs">
                 <img src="../images/cultureweek/page2_icon3.png" class="page2_imgicon right2 abs">
                 <img src="../images/cultureweek/page2_icon4.png" class="page2_imgicon left2 abs">
-            </div>
-            <div class="pre">
-                <img src="../images/cultureweek/page2_bg_04.jpg" class="page2_imgbg">
-                <img src="../images/cultureweek/page2_car.png" class="page2_imgcar abs">
             </div>
         </div>
         <div class="presentation_wrap">
@@ -88,22 +87,11 @@
             </dl>
         </div>
     </article>
-    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
-        <audio src="../images/cultureweek/236_full_calm-winds_1112.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
-    </div>
-<script type="text/javascript">
-    function audioAutoPlay(id){
-        var audio = document.getElementById(id),
-            play = function(){
-                audio.play();
-                document.removeEventListener("touchstart",play,false);
-            };
-        //audio.play();
-        document.addEventListener("WeixinJSBridgeReady",function(){
-            play()
-        },false);
-    }
-    audioAutoPlay("music_audio");
-</script>
+    <script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".index-wrap").css("height",$(window).height())
+        })
+    </script>
 </body>
 </html>

@@ -80,14 +80,35 @@ var cw = (function() {
         		var nameEl = document.getElementById(id);
 				var data_business = [//行业
 				  {
-				    text: '建筑行业',
+				    text: '信息技术',
 				    value: 1
 				  }, {
-				    text: '服务行业',
+				    text: '互联网开发/应用',
 				    value: 2
 				  }, {
-				    text: '民营企业',
+				    text: '建筑工程/装潢',
 				    value: 3
+				  }, {
+				    text: '金融',
+				    value: 4
+				  }, {
+				    text: '通信技术',
+				    value: 5
+				  }, {
+				    text: '服装/纺织/皮革',
+				    value: 6
+				  }, {
+				    text: '工程/机械',
+				    value: 7
+				  }, {
+				    text: '电子/电器/半导体/仪器仪表',
+				    value: 8
+				  }, {
+				    text: '贸易',
+				    value: 9
+				  }, {
+				    text: '其他',
+				    value: 10
 				  }
 				],
 				data_visitingtime1 = [//参观时间月份
@@ -136,6 +157,32 @@ var cw = (function() {
 					    value: 1
 					}
 				],
+				data_dategroup = [//选择车型
+					{
+					    text: '20以下',
+					    value: 1
+					},
+					{
+					    text: '20-25',
+					    value: 2
+					},
+					{
+					    text: '25-30',
+					    value: 3
+					},
+					{
+					    text: '30-40',
+					    value: 4
+					},
+					{
+					    text: '40-50',
+					    value: 5
+					},
+					{
+					    text: '55以上',
+					    value: 6
+					}
+				]/*,
 				data_handler1 = [//试驾预约时间
 					{
 					    text: '7月',
@@ -210,7 +257,7 @@ var cw = (function() {
 					    text: '测试数据4',
 					    value: 4
 					}
-				]
+				]*/
 				var title = nameEl.getAttribute("data-title");
 				var data_arr = [];
 				var selectedIndex_arr = [];
@@ -223,6 +270,10 @@ var cw = (function() {
 				    case "visitingtime":
 				        data_arr = [data_visitingtime1,data_visitingtime2,data_visitingtime3];
 				        selectedIndex_arr=[0,0,1];
+				        break;
+				    case "dategroup":
+				        data_arr = [data_dategroup];
+				        selectedIndex_arr=[0];
 				        break;
 				    case "vehicletype":
 				        data_arr = [data_vehicletype];
@@ -259,6 +310,10 @@ var cw = (function() {
 					    case "visitingtime":
 					        nameEl.value = data_visitingtime3[selectedIndex[2]].text+data_visitingtime2[selectedIndex[1]].text;
 				  			nameEl.setAttribute("data-attr", '0,' + selectedIndex[1] + ',' + selectedIndex[2])
+					        break;
+					    case "dategroup":
+					        nameEl.value = data_dategroup[selectedIndex[0]].text;
+				  			nameEl.setAttribute("data-attr", selectedIndex[0]);
 					        break;
 					    case "vehicletype":
 					        nameEl.value = data_vehicletype[selectedIndex[0]].text;
@@ -388,7 +443,6 @@ var cw = (function() {
 			merchandiseshow:{
 				init:function(){
 					tools.screen();//页面高度
-					tools.rolldate();//日历控件
 					var swiper = new Swiper('#md-sc', {
 				        pagination: '.swiper-pagination',
 				        paginationClickable: true,
@@ -403,6 +457,9 @@ var cw = (function() {
 					})
 					$("#visitingtime").on("click",function(){
 						tools.selectP("visitingtime");
+					})
+					$("#dategroup").on("click",function(){
+						tools.selectP("dategroup");
 					})
 					$("#mdSub").on("click",function(){
 						//var arr = ["#name","#mobile"];
@@ -459,7 +516,6 @@ var cw = (function() {
 				            $(window).scrollTop(0);
 				        }, 100);
 				    })
-				    tools.audioAutoPlay("music_audio");
 				}
 			},
 			testdrive:{
@@ -472,7 +528,6 @@ var cw = (function() {
 				        onSlideChangeStart: function(swiper){
 				        	console.log(swiper.activeIndex)
 				        	$(".tdpage .img_bg").removeClass("animated fadeInLeft");
-				        	$(".tdpage .img_kv").removeClass("zoomIn4");
 				        	$(".tdpage .img_icon").removeClass("fadeInLeft2");
 				        	$(".tdpage .td-a").removeClass("animated jello");
 				        	$(".tdpage .img_w1").removeClass("fadeInLeft1");
@@ -480,11 +535,9 @@ var cw = (function() {
 				    		$(".tdpage .img_w3").removeClass("zoomIn4");
 					    	if(swiper.activeIndex == 0){
 					    		$(".tdpage1 .img_bg").addClass("animated fadeInLeft");
-					    		$(".tdpage1 .img_kv").addClass("zoomIn4");
 					    		$(".tdpage1 .img_icon").addClass("fadeInLeft2");
 					    	}else if(swiper.activeIndex == 1){
 					    		$(".tdpage2 .img_bg").addClass("animated fadeInLeft");
-					    		$(".tdpage2 .img_kv").addClass("zoomIn4");
 					    		$(".tdpage2 .img_icon").addClass("fadeInLeft2");
 					    	}else if(swiper.activeIndex == 2 ){
 					    		$(".tdpage3 .img_w1").addClass("fadeInLeft1");
@@ -504,7 +557,6 @@ var cw = (function() {
 					    	}
 					    }
 				    });
-				    tools.audioAutoPlay("music_audio");
 					/*$("#vehicletype").on("click",function(){
 						tools.selectP("vehicletype");
 					})
