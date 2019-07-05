@@ -414,7 +414,7 @@ var cw = (function() {
 	        	}*/
 	            $.ajax({  
 	                async:false,  
-	                type: "POST", 
+	                type: "post", 
 	                url: url,  
 	                data: param,
 	                dataType: "json",
