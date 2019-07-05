@@ -426,7 +426,7 @@ var cw = (function() {
 	                    var status = data.status;
 	                    if (status == 0) {
 	                    	if(callback) {
-								callback(data);
+								callback(param);
 							}
 	                    }else{
 	                        _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
@@ -478,9 +478,8 @@ var cw = (function() {
 						if(!tools.verification("#visitingtime")){
 							return false
 						}
-						getCon.ajax(null,function(){
-							$("#md-sc").hide();
-							var visitingtime = $("#visitingtime").val(),
+						getCon.ajax(null,function(param){
+							var visitingtime = param.visitingtime,
 								search = "日";
 								start = visitingtime.indexOf(search);//获得字符串的开始位置
 								dd= visitingtime.substr(0,start),
@@ -488,6 +487,7 @@ var cw = (function() {
 								weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
 								day = '2019/7/'+dd,
 								week = "周"+weekArray[new Date(day).getDay()];
+                            $("#md-sc").hide();
 							$(".sdata").html("<span>2019.7."+dd+"</span>"+week+afternoon);
 	            			$(".EInvitationLetter_wrap").addClass("visibilitypage");
 	            			setTimeout(function(){ 
@@ -499,7 +499,7 @@ var cw = (function() {
 	            			},1000);
 	            			
 						});
-					})
+					});
 					$(".tatipt").on("input",function(){
 				        var that = $(this);
 				        if(that.val().length > 1){
