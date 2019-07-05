@@ -960,6 +960,7 @@ img.page_black_down {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	overflow: hidden;
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	-webkit-justify-content: center;
