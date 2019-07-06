@@ -399,7 +399,7 @@ var cw = (function() {
 	        		dategroup = $("#dategroup").val(),
 	        		business = $("#business").val(),
 	        		visitingtime = $("#visitingtime").val(),
-	        		url="/active/visit/newMember.do";
+	        		url="/api/active/visit/newMember.do";
 	            var param = {
 	                name:name,
 	                mobile:mobile,

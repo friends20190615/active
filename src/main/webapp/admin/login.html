@@ -40,7 +40,7 @@
               form.on('submit(login)', function(data){
                   $.ajax({
                       type: "post",
-                      url: "/active/activeLogin/doLogin.do",
+                      url: "/api/active/activeLogin/doLogin.do",
                       data: data.field,
                       dataType: "json",
                       success: function(result){
