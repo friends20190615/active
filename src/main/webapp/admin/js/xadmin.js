@@ -28,6 +28,26 @@
     }
   };
 
+    Xadmin.prototype.getUrlParam  = function(key) {
+        if (!key) {}
+        var url = window.location.search;
+        url = url.split("?")[1];
+        if (!url) {
+            return null;
+        }
+        var value = null;
+        var params = url.split("&");
+        $.each(params,
+            function(i, param) {
+                var kv = param.split("=");
+                if (kv[0] == key) {
+                    value = decodeURIComponent(kv[1]);
+                    return false;
+                }
+            });
+        return value;
+    };
+
 	Xadmin.prototype.add_tab = function (title,url,is_refresh) {
 		var id = md5(url);//md5每个url
 

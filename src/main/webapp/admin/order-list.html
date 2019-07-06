@@ -19,14 +19,12 @@
                 <div class="layui-col-md12">
                     <div class="layui-card">
                         <div class="layui-card-body ">
-                            <form class="layui-form layui-col-space5">
                                 <div class="layui-input-inline layui-show-xs-block">
-                                    <input type="text" name="username" placeholder="请输入手机号" autocomplete="off" class="layui-input"></div>
+                                    <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" autocomplete="off" class="layui-input"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
-                                    <button class="layui-btn" lay-submit="" lay-filter="sreach">
+                                    <button class="layui-btn searchBtn" onclick="search(this)" data-type="reload">
                                         <i class="layui-icon">&#xe615;</i></button>
                                 </div>
-                            </form>
                         </div>
                         <div class="layui-card-body ">
                             <table id="tabled" class="layui-table layui-form">
@@ -38,6 +36,7 @@
         </div>
     </body>
     <script>
+
         layui.use('table', function(){
             var table = layui.table;
             //第一个实例
@@ -46,6 +45,7 @@
                 ,height: 600
                 ,url: '/api/active/visit/getList.do' //数据接口
                 ,page: true //开启分页
+                ,id:'tabledReload'
                 ,cols: [[ //表头
                      {field: 'name', title: '用户名', width:"10%"}
                     ,{field: 'mobile', title: '手机号', width:"20%", sort: true}
@@ -57,6 +57,27 @@
             });
 
         });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var table = layui.table;
+                var mobile = $("#mobile").val();
+                //执行重载
+                table.reload('tabledReload', {
+                    page: {
+                        page: 1 //重新从第 1 页开始
+                    }
+                    ,where: {
+                        mobile: mobile,
+                    }
+                });
+            }
+        };
+
+
+        function search(){
+            active["reload"].call(this);
+        };
         /*用户-删除*/
         function member_del(obj, id) {
             layer.confirm('确认要删除吗？',
