@@ -147,6 +147,24 @@ var cw = (function() {
 					    value: 6
 					}
 				],
+                    data_visitingtime4 = [//参观时间
+                        {
+                            text: '12日',
+                            value: 1
+                        }, {
+                            text: '13日',
+                            value: 2
+                        }, {
+                            text: '14日',
+                            value: 3
+                        }, {
+                            text: '20日',
+                            value: 4
+                        }, {
+                            text: '21日',
+                            value: 5
+                        }
+                    ],
 				data_vehicletype = [//选择车型
 					{
 					    text: '2019年款路虎发现',
@@ -268,7 +286,12 @@ var cw = (function() {
 				        selectedIndex_arr=[0];
 				        break;
 				    case "visitingtime":
-				        data_arr = [data_visitingtime1,data_visitingtime2,data_visitingtime3];
+                        var origin = _person.tools.getUrlParam("origin");
+                        if(origin == "personnel"){
+                            data_arr = [data_visitingtime1,data_visitingtime2,data_visitingtime4];
+						}else{
+                            data_arr = [data_visitingtime1,data_visitingtime2,data_visitingtime3];
+						}
 				        selectedIndex_arr=[0,0,1];
 				        break;
 				    case "dategroup":
@@ -308,8 +331,14 @@ var cw = (function() {
 				  			nameEl.setAttribute("data-attr", selectedIndex[0]);
 					        break;
 					    case "visitingtime":
-					        nameEl.value = data_visitingtime3[selectedIndex[2]].text+data_visitingtime2[selectedIndex[1]].text;
-				  			nameEl.setAttribute("data-attr", '0,' + selectedIndex[1] + ',' + selectedIndex[2])
+                            var origin = _person.tools.getUrlParam("origin");
+                            if(origin == "personnel"){
+                                nameEl.value = data_visitingtime4[selectedIndex[2]].text+data_visitingtime2[selectedIndex[1]].text;
+							}else{
+                                nameEl.value = data_visitingtime3[selectedIndex[2]].text+data_visitingtime2[selectedIndex[1]].text;
+							}
+                                nameEl.setAttribute("data-attr", '0,' + selectedIndex[1] + ',' + selectedIndex[2])
+
 					        break;
 					    case "dategroup":
 					        nameEl.value = data_dategroup[selectedIndex[0]].text;
@@ -399,12 +428,25 @@ var cw = (function() {
 	        		dategroup = $("#dategroup").val(),
 	        		business = $("#business").val(),
 	        		visitingtime = $("#visitingtime").val(),
+	        		cdsid = $("#cdsid").val(),
 	        		url="/api/active/visit/newMember.do";
+                var origin = _person.tools.getUrlParam("origin");
+                if(origin == "personnel"){
+                	if(visitingtime ==="12日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，12号只能预约下午时间",contentAlign:"ac"});
+                		return;
+					}
+                    if(visitingtime ==="14日下午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，14号只能预约上午时间",contentAlign:"ac"});
+                        return;
+                    }
+				}
 	            var param = {
 	                name:name,
 	                mobile:mobile,
 	                dategroup:dategroup,
 	                business:business,
+	                cdsid:cdsid,
 	                visitingtime:visitingtime
 	            };
                 
@@ -453,6 +495,11 @@ var cw = (function() {
 				    if($ww < $wh){
 						$(".enroll_wrap").css("height",$wh);
 					}
+					var origin = _person.tools.getUrlParam("origin");
+					if(origin == "personnel"){
+						$(".cdsidshow").show();
+						$(".businessshow").hide();
+					}
 					//tools.verification("#name");
 					$("#business").on("click",function(){
 						tools.selectP("business");
@@ -471,12 +518,22 @@ var cw = (function() {
 						if(!tools.verification("#mobile")){
 							return false
 						}
-						if(!tools.verification("#dategroup")){
-							return false
+						if(origin = "personnel"){
+							if(!tools.verification("#cdsid")){
+								return false
+							}
+							if(!tools.verification("#dategroup")){
+								return false
+							}
+						}else{
+							if(!tools.verification("#dategroup")){
+								return false
+							}
+							if(!tools.verification("#business")){
+								return false
+							}
 						}
-						if(!tools.verification("#business")){
-							return false
-						}
+						
 						if(!tools.verification("#visitingtime")){
 							return false
 						}
@@ -719,6 +776,10 @@ var cw = (function() {
 				init:function(){
 					if($ww < $wh){
 						$(".index-wrap,.swiper-container,#o-c").css("height",$wh);
+					}
+					var origin = _person.tools.getUrlParam("origin");
+					if(origin == "personnel"){
+						$(".a_origin").attr("href","merchandiseshow.html?origin=personnel")
 					}
 					var oSwiper = new Swiper('#index-c',{
 						direction : 'vertical',

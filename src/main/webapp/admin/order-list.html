@@ -20,27 +20,6 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                             <form class="layui-form layui-col-space5">
-                                <!--<div class="layui-input-inline layui-show-xs-block">
-                                    <input class="layui-input" placeholder="开始日" name="start" id="start"></div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <input class="layui-input" placeholder="截止日" name="end" id="end"></div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <select name="contrller">
-                                        <option>支付方式</option>
-                                        <option>支付宝</option>
-                                        <option>微信</option>
-                                        <option>货到付款</option></select>
-                                </div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <select name="contrller">
-                                        <option value="">订单状态</option>
-                                        <option value="0">待确认</option>
-                                        <option value="1">已确认</option>
-                                        <option value="2">已收货</option>
-                                        <option value="3">已取消</option>
-                                        <option value="4">已完成</option>
-                                        <option value="5">已作废</option></select>
-                                </div>-->
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <input type="text" name="username" placeholder="请输入手机号" autocomplete="off" class="layui-input"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
@@ -49,12 +28,6 @@
                                 </div>
                             </form>
                         </div>
-                        <!--<div class="layui-card-header">
-                            <button class="layui-btn layui-btn-danger" onclick="delAll()">
-                                <i class="layui-icon"></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','./order-add.html',800,600)">
-                                <i class="layui-icon"></i>添加</button>
-                        </div>-->
                         <div class="layui-card-body ">
                             <table id="tabled" class="layui-table layui-form">
                             </table>
@@ -74,12 +47,12 @@
                 ,url: '/api/active/visit/getList.do' //数据接口
                 ,page: true //开启分页
                 ,cols: [[ //表头
-                     {field: 'name', title: '用户名', width:"20%"}
+                     {field: 'name', title: '用户名', width:"10%"}
                     ,{field: 'mobile', title: '手机号', width:"20%", sort: true}
                     ,{field: 'age', title: '年领', width:"20%",sort: true}
                     ,{field: 'profession', title: '职业', width: "20%", sort: true}
                     ,{field: 'visitTime', title: '预约时间', width: "10%", sort: true}
-                    ,{field: 'createTIme', title: '创建时间', width: "10%", sort: true}
+                    ,{field: 'createTime', title: '创建时间', width: "20%", templet : "<div>{{layui.util.toDateString(d.ordertime, 'yyyy年MM月dd日 HH:mm:ss')}}</div>",sort: true}
                 ]]
             });
 
