@@ -124,29 +124,30 @@ body {
 }
 
 .page2 img.page2_imgdj{
-	width: 16%;
+	width: 8%;
+	animation: fadeIn 0.5s ease-in-out 0s infinite alternate
 }
 
 .page2 img.page2_imgdj.right{
-	left:40%;
-	top:11%;
+	right: 28%;
+    top: 15%;
 }
 .page2 img.page2_imgdj.left{
-	left:38%;
-	top:46%;
+	left: 16%;
+    top: 52%;
 }
 .page2 img.page2_imgdj.right2{
-	left:46%;
-	top:21%;
+	right: 17%;
+    top: 18%;
 }
 .page2 img.page2_imgdj.left2{
-	left:36%;
-	top:77%;
+	left: 29%;
+    top: 76%;
 }
 .page2 img.page2_imgdj.down{
-	width: 22%;
-	left:38%;
-	top:18%;
+	width: 8%;
+    left: 66%;
+    top: 43%;
 }
 .page2 a.page2_lable {
 	display: block;
@@ -205,7 +206,11 @@ body {
     left: 24%;
 	animation: heart2 .3s ease-in-out 1.5s infinite alternate
 }
-
+.page2 img.page2_imgcarfont{
+	width: 70%;
+    top: 64%;
+    left: 15%;
+}
 .ms-wrap {
 	position: relative
 }
