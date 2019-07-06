@@ -207,9 +207,9 @@ body {
 	animation: heart2 .3s ease-in-out 1.5s infinite alternate
 }
 .page2 img.page2_imgcarfont{
-	width: 70%;
+	width: 45%;
     top: 64%;
-    left: 15%;
+    left: 25%;
 }
 .ms-wrap {
 	position: relative

@@ -523,7 +523,7 @@ var cw = (function() {
 			testdrive:{
 				init:function(){
 					tools.screen();//页面高度
-					var swiperH1 = new Swiper('.swiper-container-h1', {
+					/*var swiperH1 = new Swiper('.swiper-container-h1', {
 				        paginationClickable: true,
 				        spaceBetween: 50,
 				        centeredSlides: true,
@@ -607,8 +607,8 @@ var cw = (function() {
 					    		$(".tdpage3 .td-a").addClass("animated jello");
 					    	}
 				        }
-				    });
-					/*var swiper = new Swiper('#td-sc', {
+				    });*/
+					var swiper = new Swiper('#td-sc', {
 				        pagination: '.swiper-pagination',
 				        paginationClickable: true,
 				        direction: 'vertical',
@@ -643,7 +643,7 @@ var cw = (function() {
 					    		$(".tdpage5 .td-a").addClass("animated jello");
 					    	}
 					    }
-				    });*/
+				    });
 
 
 
