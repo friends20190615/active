@@ -386,11 +386,14 @@ var cw = (function() {
         getCon={
         	ajax:function(type,callback){
         		/*if(callback) {
-					callback();
+                    var param = {
+                        visitingtime:"13日"
+                    };
+					callback(param);
 				}
         		return;*/
-        		$(".enroll_wrap").hide();
-	            $(".EInvitationLetter_wrap").fadeIn("slow");
+        		//$(".enroll_wrap").hide();
+	           // $(".EInvitationLetter_wrap").fadeIn("slow");
         		var name = $("#name").val(),
 	        		mobile = $("#mobile").val(),
 	        		dategroup = $("#dategroup").val(),
@@ -404,6 +407,7 @@ var cw = (function() {
 	                business:business,
 	                visitingtime:visitingtime
 	            };
+                
 	            /*if(type=="testdrive"){
 	        		url="试驾申请接口";
 	        		param.idnumber = $("#idnumber").val();
@@ -412,21 +416,18 @@ var cw = (function() {
 	        		param.city = $("#city").val();
 	        		param.dealer = $("#dealer").val();
 	        	}*/
-	            $.ajax({  
-	                async:false,  
+	            $.ajax({
 	                type: "post", 
 	                url: url,  
 	                data: param,
 	                dataType: "json",
-	                beforeSend:function(){
-	                    _person.tools.loading.show();
-	                },
 	                async:false,
 	                success:function(data){
 	                    var status = data.status;
 	                    if (status == 0) {
 	                    	if(callback) {
 								callback(param);
+								return;
 							}
 	                    }else{
 	                        _person.tools.Dialog.alert({title:"",content:data.msg,contentAlign:"ac"});
@@ -436,6 +437,7 @@ var cw = (function() {
 	                    _person.tools.Dialog.alert({title:"",content:"服务器繁忙",contentAlign:"ac"});
 	                }  
 	            });
+	            return;
         	}
         };
 	return {
@@ -478,27 +480,27 @@ var cw = (function() {
 						if(!tools.verification("#visitingtime")){
 							return false
 						}
-						getCon.ajax(null,function(param){
-							var visitingtime = param.visitingtime,
-								search = "日";
-								start = visitingtime.indexOf(search);//获得字符串的开始位置
-								dd= visitingtime.substr(0,start),
-								afternoon = visitingtime.substr(-2),
-								weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
-								day = '2019/7/'+dd,
-								week = "周"+weekArray[new Date(day).getDay()];
-                            $("#md-sc").hide();
-							$(".sdata").html("<span>2019.7."+dd+"</span>"+week+afternoon);
-	            			$(".EInvitationLetter_wrap").addClass("visibilitypage");
-	            			setTimeout(function(){ 
-	            				tools.screenShot($('#contbox'),function (canvas,width,height) {
-						            document.querySelector('#down1').src = canvas;
-						            document.querySelector('#down1').style.width = width+"px";
-						            document.querySelector('#down1').style.height = height+"px";
-						        });
-	            			},1000);
-	            			
-						});
+						var visitingtime = $("#visitingtime").val(),
+                    	search = "日";
+		                start = visitingtime.indexOf(search);//获得字符串的开始位置
+		                dd= visitingtime.substr(0,start),
+		                    afternoon = visitingtime.substr(-2),
+		                    weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
+		                    day = '2019/7/'+dd,
+		                    week = "周"+weekArray[new Date(day).getDay()];
+		                $(".sdata").html("<span>2019.7."+dd+"</span>"+week+afternoon);
+		                setTimeout(function(){
+		                    tools.screenShot($('#contbox'),function (canvas,width,height) {
+		                        document.querySelector('#down1').src = canvas;
+		                        document.querySelector('#down1').style.width = width+"px";
+		                        document.querySelector('#down1').style.height = height+"px";
+		                    });
+		                    getCon.ajax(null,function(param){
+	                            $("#md-sc").hide();
+		            			$(".EInvitationLetter_wrap").addClass("visibilitypage");
+							});
+		                },1000);
+						
 					});
 					$(".tatipt").on("input",function(){
 				        var that = $(this);

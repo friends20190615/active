@@ -230,9 +230,3 @@ _person.tools = {
         zuche.uitls.canStorage() && localStorage.removeItem(key)
     }
 }
-$(document).on("ajaxStart", function() {
-    _person.tools.loading.show();
-}),
-$(document).on("ajaxStop", function() {
-    _person.tools.loading.hide();
-})
