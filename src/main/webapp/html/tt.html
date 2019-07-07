@@ -36,10 +36,36 @@
 </head>
 <body>
 <script type="text/javascript">
-    var weekArray = new Array("日", "一", "二", "三", "四", "五", "六"),
-    day = '2019-7-14',
-    week = "周"+weekArray[new Date(day).getDay()];
-    alert(week);
+    var myDate = new Date();
+    var day = myDate.getDate(); 
+    alert(day);
+    function generateArray() {
+    names = ["Fariz", "Falisha", "Mami", "Defina", "Fiska", "Papi"];
+    newObj = [];
+
+    for (i = 0; i < names.length; i++) {
+        newObj[i] = {
+            name: names[(Math.floor(Math.random() * (names.length)))],
+            age: Math.floor(Math.random() * 40),
+            communication: Math.floor(Math.random() * 20),
+            skill: Math.floor(Math.random() * 20),
+            experience: Math.floor(Math.random() * 20)
+        }
+    }
+
+    return newObj;
+}
+
+console.log(generateArray());
+
+var arr4 = new Array();
+var i = 12;
+do{
+  arr4.push(i+"日");
+  i++;
+}
+while(i<18)
+console.log(arr4);
 </script>
 </body>
 </html>

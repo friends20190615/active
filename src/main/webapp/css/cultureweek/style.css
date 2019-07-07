@@ -395,13 +395,29 @@ img.page_black_down {
 .enroll_wrap .but button {
 	position: absolute;
 	width: 37%;
-	top: 50%;
+	top: 20%;
 	left: 50%;
 	background: 0 0;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%)
 }
+.enroll_wrap .but .inits{
+	width: 100%;
+	text-align: center;
+	font-size: .4rem;
+	line-height: .7rem;
+	position: absolute;
+	top: 80%;
+	color:#290000;
+	left: 0;
+	background: 0 0;
+	-webkit-transform: translate(0,-50%);
+	transform: translate(0,-50%)
 
+}
+.enroll_wrap .but .inits span{
+	color:rgba(0,0,0,1);
+}
 .enroll_wrap .but button img {
 	width: 100%
 }

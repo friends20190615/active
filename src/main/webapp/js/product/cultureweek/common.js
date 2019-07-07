@@ -78,6 +78,29 @@ var cw = (function() {
         	},
         	selectP:function(id){
         		var nameEl = document.getElementById(id);
+        		var myDate = new Date();
+			    var day = myDate.getDate(); 
+			    console.log("day:",day);
+			    
+			    var dayarr = new Array();
+				var i = 12;
+				if( day >= 12){
+			    	i = day
+			    }
+				do{
+				  dayarr.push(i+"日");
+				  i++;
+				}
+				while(i<22)
+				console.log("dayarr:",dayarr);
+				var data_visitingtime3 = [];
+
+			    for (i = 0; i < dayarr.length; i++) {
+			        data_visitingtime3[i] = {
+			            text: dayarr[i],
+			            value: Math.floor(Math.random() * 40)
+			        }
+			    }
 				var data_business = [//行业
 				  {
 				    text: '信息技术',
@@ -126,45 +149,21 @@ var cw = (function() {
 					    value: 2
 					}
 				],
-				data_visitingtime3 = [//参观时间
-					{
-					    text: '12日',
-					    value: 1
-					}, {
-					    text: '13日',
-					    value: 2
-					}, {
-					    text: '14日',
-					    value: 3
-					}, {
-					    text: '15日',
-					    value: 4
-					}, {
-					    text: '16日',
-					    value: 5
-					},{
-						text: '17日',
-					    value: 6
-					}
-				],
-                    data_visitingtime4 = [//参观时间
-                        {
-                            text: '12日',
-                            value: 1
-                        }, {
-                            text: '13日',
-                            value: 2
-                        }, {
-                            text: '14日',
-                            value: 3
-                        }, {
-                            text: '20日',
-                            value: 4
-                        }, {
-                            text: '21日',
-                            value: 5
-                        }
-                    ],
+                data_visitingtime4 = [//参观时间
+                    {
+                        text: '13日',
+                        value: 2
+                    }, {
+                        text: '14日',
+                        value: 3
+                    }, {
+                        text: '20日',
+                        value: 4
+                    }, {
+                        text: '21日',
+                        value: 5
+                    }
+                ],
 				data_vehicletype = [//选择车型
 					{
 					    text: '2019年款路虎发现',
@@ -440,6 +439,31 @@ var cw = (function() {
                         _person.tools.Dialog.alert({title:"",content:"很抱歉，14号只能预约上午时间",contentAlign:"ac"});
                         return;
                     }
+				}else{
+                    if(visitingtime ==="12日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，12号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
+                    if(visitingtime ==="13日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，13号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
+                    if(visitingtime ==="14日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，14号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
+                    if(visitingtime ==="15日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，15号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
+                    if(visitingtime ==="16日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，16号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
+                    if(visitingtime ==="17日上午"){
+                        _person.tools.Dialog.alert({title:"",content:"很抱歉，17号只能预约下午时间",contentAlign:"ac"});
+                        return;
+                    }
 				}
 	            var param = {
 	                name:name,
@@ -498,7 +522,7 @@ var cw = (function() {
 					var origin = _person.tools.getUrlParam("origin");
 					if(origin == "personnel"){
 						$(".cdsidshow").show();
-						$(".businessshow").hide();
+						$(".businessshow,.inits").hide();
 					}
 					//tools.verification("#name");
 					$("#business").on("click",function(){
