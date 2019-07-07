@@ -395,7 +395,7 @@ img.page_black_down {
 .enroll_wrap .but button {
 	position: absolute;
 	width: 37%;
-	top: 20%;
+	top: 30%;
 	left: 50%;
 	background: 0 0;
 	-webkit-transform: translate(-50%,-50%);

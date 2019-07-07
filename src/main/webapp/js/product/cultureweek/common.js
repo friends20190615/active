@@ -542,7 +542,7 @@ var cw = (function() {
 						if(!tools.verification("#mobile")){
 							return false
 						}
-						if(origin = "personnel"){
+						if(origin == "personnel"){
 							if(!tools.verification("#cdsid")){
 								return false
 							}
