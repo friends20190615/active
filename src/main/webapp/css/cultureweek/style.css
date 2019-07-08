@@ -233,10 +233,6 @@ body {
 	font-weight: bold;
 	color:#fff;
 	width:33%;
-	text-align: center;
-	line-height: 1.4rem;
-	height: 1.4rem;
-	background: #000;
 	z-index: 21;
 }
 .ms-wrap a.a-introduce img{
@@ -283,15 +279,15 @@ img.page_black_down {
 }
 .cjhd{
 	position:absolute;
+	width: 25%;
 	left: 50%;
 	bottom:5.5%;
-	padding:0.1rem 0.2rem;
 	font-size: 0.45rem;
 	color: #000;
-	background: #ccc;
 	-webkit-transform: translate(-50%,0);
 	transform: translate(-50%,0)
 }
+.cjhd img{width:100%;}
 .enroll_wrap {
 	position: relative;
 	height: 100%;
@@ -414,6 +410,9 @@ img.page_black_down {
 	-webkit-transform: translate(0,-50%);
 	transform: translate(0,-50%)
 
+}
+.enroll_wrap .but .inits img{
+	width:48%;
 }
 .enroll_wrap .but .inits span{
 	color:rgba(0,0,0,1);
