@@ -224,7 +224,7 @@ body {
 	left: 0;
 	z-index: 2
 }
-.ms-wrap a.a-introduce{
+.ms-wrap a.a-introduce,.ms-wrap a.a-introduce-shou{
 	position: absolute;
 	left:5%;
 	top:52%;
@@ -235,11 +235,13 @@ body {
 	width:33%;
 	z-index: 21;
 }
-.ms-wrap a.a-introduce img{
+.ms-wrap a.a-introduce img,.ms-wrap a.a-introduce-shou img{
 	width:100%;
 	height: auto;
 }
-
+.ms-wrap a.a-introduce-shou{
+	animation: fadeIn 0.5s ease-in-out 0s infinite alternate
+}
 img.page_black_down {
 	width: 8%;
 	left: 50%;
@@ -280,12 +282,10 @@ img.page_black_down {
 .cjhd{
 	position:absolute;
 	width: 25%;
-	left: 50%;
+	left: 37.5%;
 	bottom:5.5%;
 	font-size: 0.45rem;
 	color: #000;
-	-webkit-transform: translate(-50%,0);
-	transform: translate(-50%,0)
 }
 .cjhd img{width:100%;}
 .enroll_wrap {
@@ -391,7 +391,7 @@ img.page_black_down {
 .enroll_wrap .but button {
 	position: absolute;
 	width: 37%;
-	top: 30%;
+	top: 45%;
 	left: 50%;
 	background: 0 0;
 	-webkit-transform: translate(-50%,-50%);
@@ -816,6 +816,10 @@ img.page_black_down {
 	-webkit-animation: passdown 1.8s ease infinite;
 	animation: passdown 1.8s ease infinite
 }
+.arrow2 {
+	-webkit-animation: passdown2 1.8s ease infinite;
+	animation: passdown2 1.8s ease infinite
+}
 
 .tdpage3,.tdpage4,.tdpage5 {
 	background-color: #0e2130
@@ -875,8 +879,8 @@ img.page_black_down {
 .presentation_wrap{
 	position:absolute;
 	width:92%;
-	height:50%;
-	bottom:0.5rem;
+	height:48%;
+	bottom:8%;
 	left:4%;
 	font-size: 0.47rem;
 	line-height: 0.7rem;
@@ -884,6 +888,19 @@ img.page_black_down {
 	color: #000000;
 	background: rgba(255,255,255,0.71);
 	z-index: 30;
+}
+.presentation_but{
+	position:absolute;
+	height:4%;
+	width:auto;
+	left:50%;
+	bottom:0;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%)
+}
+.presentation_but img{
+	height: 100%;
+	width: auto;
 }
 .presentation_wrap dl{
 	overflow-y: auto;
@@ -912,6 +929,19 @@ img.page_black_down {
 	100% {
 		bottom: 2%;
 		opacity: 1
+	}
+}
+@-webkit-keyframes passdown2 {
+	0% {
+		bottom: 4%;
+	}
+
+	50% {
+		bottom: 6%;
+	}
+
+	100% {
+		bottom: 4%;
 	}
 }
 
