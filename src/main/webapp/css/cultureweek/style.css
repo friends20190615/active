@@ -915,6 +915,16 @@ img.page_black_down {
 	padding-top:0.6rem;
 	font-weight: bold;
 }
+.a-graybg{
+	position: absolute;
+	left: 10%;
+	top:0px;
+	font-size: .6rem;
+	color: #fff;
+	padding:.3rem;
+	line-height: .7rem;
+	background: rgba(57,49,40,.62);
+}
 @-webkit-keyframes passdown {
 	0% {
 		bottom: 2%;
