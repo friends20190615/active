@@ -24,6 +24,8 @@
                                 <div class="layui-input-inline layui-show-xs-block">
                                     <button class="layui-btn searchBtn" onclick="search(this)" data-type="reload">
                                         <i class="layui-icon">&#xe615;</i></button>
+                                    <button class="layui-btn searchBtn" onclick="downData(this)" data-type="reload">
+                                        下载</button>
                                 </div>
                         </div>
                         <div class="layui-card-body ">
@@ -74,6 +76,10 @@
             }
         };
 
+
+        function downData(){
+            window.location.href="/api/active/export/getExcelDz.do";
+        };
 
         function search(){
             active["reload"].call(this);
