@@ -801,6 +801,10 @@ img {
 	opacity: 0
 }
 
+.page_wrap.page4 #bookingdrive_submit .img_w100 {
+	opacity: 1
+}
+
 .page_wrap.page4 .img_title_logo {
 	top: 1rem
 }

@@ -114,19 +114,18 @@ getCon = {
 			case "bookingdrive_province":
 				keyMap = {
 					"provinceName":"text",
-					"province_id":"value"
+                    "provinceName":"text",
 				}
 				break;
 			case "bookingdrive_city":
 				keyMap = {
-					"city_name":"text",
-					"city_id":"value"
+					"cityName":"text",
 				}
 				break;
 			case "bookingdrive_dealer":
 				keyMap = {
-					"dealer_name":"text",
-					"dealer_id":"value"
+					"dealerName":"text",
+					"dealerCode":"value"
 				}
 				break;
 		}
@@ -212,12 +211,13 @@ $("#bookingdrive_city").on("click",function(){
 	if (!tools.verification("#bookingdrive_province")) {
 		return false
 	}
-	var province_id = $("#bookingdrive_province").attr("data-attr");
+	var provinceName= $("#bookingdrive_province").val();
+	console.info(provinceName);
 	var params = {
-		"province_id":province_id
+		"pName":provinceName
 	}
 	var options = {
-		url:'/city.do',
+		url:'/active/road/getCityList.do',
 		type:'get',
 		params:params
 	}
@@ -231,12 +231,14 @@ $("#bookingdrive_dealer").on("click",function(){
 	if (!tools.verification("#bookingdrive_city")) {
 		return false
 	}
-	var city_id = $("#bookingdrive_city").attr("data-attr");
+	var cityName = $("#bookingdrive_city").val();
+    var pName = $("#bookingdrive_province").val();
 	var params = {
-		"city_id":city_id
+		"cName":cityName,
+		"pName":pName
 	}
 	var options = {
-		url:'/dealer.do',
+		url:'/active/road/getDealerList.do',
 		type:'get',
 		params:params
 	}
@@ -274,15 +276,15 @@ $("#bookingdrive_submit").on("click", function() {
 	}*/
 	var params = {
 		name:$("#bookingdrive_name").val(),
-		phone:$("#bookingdrive_mobile").val(),
-		province_id:$("#bookingdrive_province").attr("data-attr"),
-		city_id:$("#bookingdrive_city").attr("data-attr"),
-		dealer_id:$("#bookingdrive_dealer").attr("data-attr"),
-		vehicle_type:$("#bookingdrive_vehicleType").val(),
-		date:$("#bookingdrive_time").val()
+		mobile:$("#bookingdrive_mobile").val(),
+		provinceName:$("#bookingdrive_province").val(),
+		cityName:$("#bookingdrive_city").val(),
+		dealerCode:$("#bookingdrive_dealer").attr("data-attr"),
+		carModal:$("#bookingdrive_vehicleType").val(),
+		appointTime:$("#bookingdrive_time").val()
 	}
 	var options = {
-		url:'/bookingdrive.do',
+		url:'/active/road/addInfo.do',
 		type:'get',
 		params:params
 	}
