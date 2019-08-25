@@ -1,6 +1,7 @@
 
 let select_province = [{text: '',value: ''}],
 	select_array = [{text: '',value: ''}],
+	data_date = [{text: '',value: ''}],
 	tools = {
 	verification:function(type){
 		var that = $(type);
@@ -37,10 +38,31 @@ let select_province = [{text: '',value: ''}],
 		}
 		return array;
 	},
+	generateArray:function(){
+		var names = [];
+		var myDate = new Date();
+		var month=myDate.getMonth();
+		var day=myDate.getDate();
+		if(month != 9){
+			day = 1;
+		}
+		for (var i=day;i<31;i++) {
+			names[names.length] = ''+i;
+		}
+	    for (var i = 0; i < names.length; i++) {
+	        data_date[i] = {
+	            text: names[i]+'日',
+	            value: names[i]
+	        }
+	    }
+
+    return data_date;
+	},
 	selectP:function(id){
 		let nameEl = document.getElementById(id),
 			title = nameEl.getAttribute("data-title"),
 			data_arr = [],
+			selectedIndex = [0],
 			data_province = select_province,
 			data_array = select_array,
 			data_vehicleType = [ //车型
@@ -51,7 +73,10 @@ let select_province = [{text: '',value: ''}],
 					text: '路虎发现神行',
 					value: 4002
 				}
-			]
+			],
+			data_month = [
+				{text: '9月',value:'9'}
+			];
 		switch (id) {
 			case "bookingdrive_province":
 				data_arr = [select_province];
@@ -59,12 +84,16 @@ let select_province = [{text: '',value: ''}],
 			case "bookingdrive_vehicleType":
 				data_arr = [data_vehicleType];
 				break;
+			case "bookingdrive_time":
+				data_arr = [data_month,data_date];
+				selectedIndex=[0,0];
+				break;
 			default:
 				data_arr = [select_array];
 		}
 		let picker = new Picker({
 			data: data_arr,
-			selectedIndex: [0],
+			selectedIndex: selectedIndex,
 			title: title
 		});
 		picker.on('picker.select', function(selectedVal, selectedIndex) {
@@ -77,6 +106,10 @@ let select_province = [{text: '',value: ''}],
 				case "bookingdrive_vehicleType":
 					nameEl.value = data_vehicleType[selectedIndex[0]].text;
 					nameEl.setAttribute("data-attr", data_vehicleType[selectedIndex[0]].value);
+					break;
+				case "bookingdrive_time":
+					nameEl.value = data_month[selectedIndex[0]].text+data_date[selectedIndex[1]].text;
+					nameEl.setAttribute("data-attr", selectedIndex[0].value + '/' + selectedIndex[1].value);
 					break;
 				default:
 					nameEl.value = data_array[selectedIndex[0]].text;
@@ -105,7 +138,29 @@ let select_province = [{text: '',value: ''}],
 		});
 
 		picker.show();
-	}
+	},
+        	rolldate:function(){
+        		var lang = {
+					title: '选择出生日期',
+					cancel: '取消',
+					confirm: '确认',
+					year: '年',
+					month: '月',
+					day: '日'
+				};
+        		var myDate = new Date(),
+					year = myDate.getFullYear();
+        		new Rolldate({
+					el: '#dategroup',
+					format: 'YYYY-MM-DD',
+					beginYear: 1,
+					endYear:year,
+					lang: lang,
+				    init: function() {
+						$("#dategroup").blur(function(){$("keyboard").hide();});
+					}
+				})
+        	}
 },
 getCon = {
 	select:function(type,options){
@@ -141,7 +196,8 @@ getCon = {
 						tools.selectP(type);
 					}
 				}else{
-					dialog.toast({content:data.msg});
+					var msg = data.msg || '请稍后重试！';
+					dialog.toast({content:msg});
 					return false;
 				}
 			}
@@ -203,6 +259,7 @@ init=function(){
 		}
 
 	});
+	tools.generateArray();
 }()
 $("#bookingdrive_province").on("click",function(){
 	tools.selectP("bookingdrive_province");
@@ -212,7 +269,6 @@ $("#bookingdrive_city").on("click",function(){
 		return false
 	}
 	var provinceName= $("#bookingdrive_province").val();
-	console.info(provinceName);
 	var params = {
 		"pName":provinceName
 	}
@@ -249,8 +305,7 @@ $("#bookingdrive_vehicleType").on("click",function(){
 	tools.selectP("bookingdrive_vehicleType");
 })
 $("#bookingdrive_time").on("click",function(){
-	console.log('选择时间')
-	//tools.selectP("visitingtime");
+	tools.selectP("bookingdrive_time");
 })
 $("#bookingdrive_submit").on("click", function() {
 	if (!tools.verification("#bookingdrive_name")) {
@@ -271,9 +326,9 @@ $("#bookingdrive_submit").on("click", function() {
 	if (!tools.verification("#bookingdrive_vehicleType")) {
 		return false
 	}
-	/*if (!tools.verification("#bookingdrive_time")) {
+	if (!tools.verification("#bookingdrive_time")) {
 		return false
-	}*/
+	}
 	var params = {
 		name:$("#bookingdrive_name").val(),
 		mobile:$("#bookingdrive_mobile").val(),
@@ -293,10 +348,10 @@ $("#bookingdrive_submit").on("click", function() {
 			if(data.status == 0){
 				var result = data.result;
 				if(result){
-					var location = result.booking_location,
-						tel = result.booking_tel,
-						dealer = result.booking_dealer,
-						date = result.booking_date;
+					var location = result.areaCode,
+						tel = result.phoneNum,
+						dealer = result.delaerSortName,
+						date = result.appointTime;
 					$("#suc_time").html(date);
 					$("#suc_dealer").html(dealer);
 					$(".inif_location").html(location);
@@ -305,6 +360,12 @@ $("#bookingdrive_submit").on("click", function() {
 					$("#bd-w").hide();
 					$(".page_succeed").show();
 				}
+			}else if(data.status == 0){
+                dialog.show({content:"该用户已报过名"});
+                return false;
+			}else{
+                dialog.show({content:data.msg});
+                return false;
 			}
 		}else{
 			dialog.show({content:data.msg});
