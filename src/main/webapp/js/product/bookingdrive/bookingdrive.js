@@ -213,7 +213,7 @@ init=function(){
 		$(".addh,#bd-w.swiper-container").css("height",$wh);
 	}
 	var province_options = {
-		url:'/active/road/getProvinceList.do',
+		url:'/api/active/road/getProvinceList.do',
 		type:'get',
 		params:''
 	}
@@ -273,7 +273,7 @@ $("#bookingdrive_city").on("click",function(){
 		"pName":provinceName
 	}
 	var options = {
-		url:'/active/road/getCityList.do',
+		url:'/api/active/road/getCityList.do',
 		type:'get',
 		params:params
 	}
@@ -294,7 +294,7 @@ $("#bookingdrive_dealer").on("click",function(){
 		"pName":pName
 	}
 	var options = {
-		url:'/active/road/getDealerList.do',
+		url:'/api/active/road/getDealerList.do',
 		type:'get',
 		params:params
 	}
@@ -339,7 +339,7 @@ $("#bookingdrive_submit").on("click", function() {
 		appointTime:$("#bookingdrive_time").val()
 	}
 	var options = {
-		url:'/active/road/addInfo.do',
+		url:'/api/active/road/addInfo.do',
 		type:'get',
 		params:params
 	}
