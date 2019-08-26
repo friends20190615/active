@@ -348,14 +348,15 @@ $("#bookingdrive_submit").on("click", function() {
 			if(data.status == 0){
 				var result = data.result;
 				if(result){
-					var location = result.areaCode,
+					var  areaCode= result.areaCode,
 						tel = result.phoneNum,
 						dealer = result.delaerSortName,
-						date = result.appointTime;
+						date = result.appointTime,
+                        location=result.delaerAdress;
 					$("#suc_time").html(date);
 					$("#suc_dealer").html(dealer);
 					$(".inif_location").html(location);
-					$(".inif_tel").html(tel);
+					$(".inif_tel").html(areaCode+"-"+tel);
 
 					$("#bd-w").hide();
 					$(".page_succeed").show();
