@@ -1,8 +1,20 @@
 
 let select_province = [{text: '',value: ''}],
 	select_array = [{text: '',value: ''}],
-	data_date = [{text: '',value: ''}],
+	data_month = [];
+	data_date = [],
 	tools = {
+	audioAutoPlay : function(id){
+        var audio = document.getElementById(id),
+            play = function(){
+                audio.play();
+                document.removeEventListener("touchstart",play,false);
+            };
+        //audio.play();
+        document.addEventListener("WeixinJSBridgeReady",function(){
+            play()
+        },false);
+    },
 	verification:function(type){
 		var that = $(type);
 		var val = $.trim(that.val());
@@ -38,25 +50,74 @@ let select_province = [{text: '',value: ''}],
 		}
 		return array;
 	},
+	dow:function(array,start,end){
+        do{
+            array[array.length] = {
+                text:start.getDate()+'日'
+            }
+            start.setDate(start.getDate()+1);
+        }while(end >= start);
+    },
 	generateArray:function(){
-		var names = [];
-		var myDate = new Date();
-		var month=myDate.getMonth();
-		var day=myDate.getDate();
-		if(month != 9){
-			day = 1;
-		}
-		for (var i=day;i<31;i++) {
-			names[names.length] = ''+i;
-		}
-	    for (var i = 0; i < names.length; i++) {
-	        data_date[i] = {
-	            text: names[i]+'日',
-	            value: names[i]
-	        }
-	    }
-
-    return data_date;
+		var timeStr = '-';
+        var curDate = new Date();
+        var curYear =curDate.getFullYear();  
+        var curMonth = curDate.getMonth()+1;  
+        var curDay = curDate.getDate();      
+        var start9 = new Date("2019-09-01".replace(/-/g,"/"));
+        var end9 = new Date("2019-09-30".replace(/-/g,"/"));
+        var start10 = new Date("2019-10-01".replace(/-/g,"/"));
+        var end10 = new Date("2019-10-31".replace(/-/g,"/"));
+        var date_array9=[],date_array10=[];
+        if(curMonth == 10){
+            var current=curYear+timeStr+curMonth+timeStr+curDay;
+            start10 = new Date(current.replace(/-/g,"/"));
+            tools.dow(date_array10,start10,end10)
+            date_array = [
+                {
+                    "text":"10月",
+                    "date":date_array10
+                }
+            ]
+        }else if(curMonth == 9){
+            date_array = [
+                {
+                    "text":"9月",
+                    "date":date_array9
+                },
+                {
+                    "text":"10月",
+                    "date":date_array10
+                }
+            ]
+            var current=curYear+timeStr+curMonth+timeStr+curDay;
+            start9 = new Date(current.replace(/-/g,"/"));
+            tools.dow(date_array9,start9,end9)
+            tools.dow(date_array10,start10,end10)
+        }else{
+            date_array = [
+                {
+                    "text":"9月",
+                    "date":date_array9
+                },
+                {
+                    "text":"10月",
+                    "date":date_array10
+                }
+            ]
+            tools.dow(date_array9,start9,end9)
+            tools.dow(date_array10,start10,end10)
+        }
+        console.log("date_array",date_array)
+    	return date_array;
+	},
+	creatList:function(obj, list) {
+		obj.forEach(function(item, index, arr) {
+			var temp = new Object();
+			temp.text = item.text;
+			temp.value = index;
+			list.push(temp);
+		})
 	},
 	selectP:function(id){
 		let nameEl = document.getElementById(id),
@@ -73,9 +134,6 @@ let select_province = [{text: '',value: ''}],
 					text: '路虎发现神行',
 					value: 4002
 				}
-			],
-			data_month = [
-				{text: '9月',value:'9'}
 			];
 		switch (id) {
 			case "bookingdrive_province":
@@ -121,6 +179,24 @@ let select_province = [{text: '',value: ''}],
 		picker.on('picker.change', function(index, selectedIndex) {
 			console.log('1',index);
 			console.log('2',selectedIndex);
+			if(id == "bookingdrive_time"){
+				if (index === 0) {
+					firstChange();
+				}
+
+				function firstChange() {
+					var checked = [0, 0];
+					data_date = [];
+					checked[0] = selectedIndex;
+					var firstDate = date_array[selectedIndex];
+					console.log('firstDate', firstDate)
+					if (firstDate.hasOwnProperty('date')) {
+						tools.creatList(firstDate.date, data_date);
+					}
+					console.log('***', data_date)
+					picker.refillColumn(1, data_date);
+				}
+			}
 		});
 
 
@@ -138,29 +214,7 @@ let select_province = [{text: '',value: ''}],
 		});
 
 		picker.show();
-	},
-        	rolldate:function(){
-        		var lang = {
-					title: '选择出生日期',
-					cancel: '取消',
-					confirm: '确认',
-					year: '年',
-					month: '月',
-					day: '日'
-				};
-        		var myDate = new Date(),
-					year = myDate.getFullYear();
-        		new Rolldate({
-					el: '#dategroup',
-					format: 'YYYY-MM-DD',
-					beginYear: 1,
-					endYear:year,
-					lang: lang,
-				    init: function() {
-						$("#dategroup").blur(function(){$("keyboard").hide();});
-					}
-				})
-        	}
+	}
 },
 getCon = {
 	select:function(type,options){
@@ -260,6 +314,14 @@ init=function(){
 
 	});
 	tools.generateArray();
+	tools.audioAutoPlay("music_audio");
+	tools.creatList(date_array, data_month);
+	console.log("data_month",data_month)
+	var selectedIndex = [0, 0];
+	if (date_array[selectedIndex[0]].hasOwnProperty('date')) {
+		tools.creatList(date_array[selectedIndex[0]].date, data_date);
+	}
+	console.log("data_date",data_date)
 }()
 $("#bookingdrive_province").on("click",function(){
 	tools.selectP("bookingdrive_province");
