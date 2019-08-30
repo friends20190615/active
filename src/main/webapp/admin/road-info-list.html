@@ -45,7 +45,7 @@
             table.render({
                  elem: '#tabled'
                 ,height: 600
-                ,url: '/api/active/road/getList.do' //数据接口
+                ,url: '/active/road/getList.do' //数据接口
                 ,page: true //开启分页
                 ,id:'tabledReload'
                 ,cols: [[ //表头
@@ -82,7 +82,7 @@
 
 
         function downData(){
-            window.location.href="/api/active/export/getExcelRoad.do";
+            window.location.href="/active/export/getExcelRoad.do";
         };
 
         function search(){
