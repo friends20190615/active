@@ -62,4 +62,8 @@
     <error-code>400</error-code>
     <location>/WEB-INF/views/error.jsp</location>
   </error-page>
+  <welcome-file-list>
+    <welcome-file>active/html/bookingdrive.html
+    </welcome-file>
+  </welcome-file-list>
 </web-app>
