@@ -64,50 +64,44 @@ let select_province = [{text: '',value: ''}],
         var curYear =curDate.getFullYear();  
         var curMonth = curDate.getMonth()+1;  
         var curDay = curDate.getDate();      
-        var start9 = new Date("2019-09-01".replace(/-/g,"/"));
-        var end9 = new Date("2019-09-30".replace(/-/g,"/"));
-        var start10 = new Date("2019-10-01".replace(/-/g,"/"));
+        var start10 = new Date("2019-10-17".replace(/-/g,"/"));
         var end10 = new Date("2019-10-31".replace(/-/g,"/"));
-        var date_array9=[],date_array10=[];
+        var start11 = new Date("2019-11-01".replace(/-/g,"/"));
+        var end11 = new Date("2019-11-30".replace(/-/g,"/"));
+        var start12 = new Date("2019-12-01".replace(/-/g,"/"));
+        var end12 = new Date("2019-12-31".replace(/-/g,"/"));
+        var date_array10=[],date_array11=[],date_array12=[];
+        var anum = 0;
+        var current=curYear+timeStr+curMonth+timeStr+curDay;
         if(curMonth == 10){
-            var current=curYear+timeStr+curMonth+timeStr+curDay;
-            start10 = new Date(current.replace(/-/g,"/"));
-            tools.dow(date_array10,start10,end10)
-            date_array = [
-                {
-                    "text":"10月",
-                    "date":date_array10
-                }
-            ]
-        }else if(curMonth == 9){
-            date_array = [
-                {
-                    "text":"9月",
-                    "date":date_array9
-                },
-                {
-                    "text":"10月",
-                    "date":date_array10
-                }
-            ]
-            var current=curYear+timeStr+curMonth+timeStr+curDay;
-            start9 = new Date(current.replace(/-/g,"/"));
-            tools.dow(date_array9,start9,end9)
-            tools.dow(date_array10,start10,end10)
-        }else{
-            date_array = [
-                {
-                    "text":"9月",
-                    "date":date_array9
-                },
-                {
-                    "text":"10月",
-                    "date":date_array10
-                }
-            ]
-            tools.dow(date_array9,start9,end9)
-            tools.dow(date_array10,start10,end10)
+        	if(curDay > 17){
+        		start10 = new Date(current.replace(/-/g,"/"));
+        	}
+        }else if(curMonth == 11){
+        	anum = 1;
+            start11 = new Date(current.replace(/-/g,"/"));
+        }else if(curMonth == 12){
+        	anum = 2;
+        	start12 = new Date(current.replace(/-/g,"/"));
         }
+        tools.dow(date_array10,start10,end10)
+        tools.dow(date_array11,start11,end11)
+        tools.dow(date_array12,start12,end12)
+        date_array = [
+            {
+                "text":"10月",
+                "date":date_array10
+            },
+            {
+                "text":"11月",
+                "date":date_array11
+            },
+            {
+                "text":"12月",
+                "date":date_array12
+            }
+        ]
+        date_array.splice(0,anum);
         console.log("date_array",date_array)
     	return date_array;
 	},
