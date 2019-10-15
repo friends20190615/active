@@ -45,18 +45,13 @@
             table.render({
                  elem: '#tabled'
                 ,height: 600
-                ,url: '/active/roadv2/getList.do' //数据接口
+                ,url: '/active/roadv2/getJdList.do' //数据接口
                 ,page: true //开启分页
                 ,id:'tabledReload'
                 ,cols: [[ //表头
                      {field: 'name', title: '用户名', width:"10%"}
                     ,{field: 'mobile', title: '手机号', width:"10%", sort: true}
-                    ,{field: 'provinceName', title: '省', width:"10%",sort: true}
                     ,{field: 'cityName', title: '市', width: "10%", sort: true}
-                    ,{field: 'delaerSortName', title: '经销商地址', width: "10%", sort: true}
-                    ,{field: 'appointTime', title: '预约时间', width: "10%", sort: true}
-                    ,{field: 'areaCode', title: '区号', width: "10%"}
-                    ,{field: 'phoneNum', title: '经销商电话', width: "10%"}
                     ,{field: 'createTime', title: '创建时间', width: "30%", templet : "<div>{{layui.util.toDateString(d.createTime, 'yyyy年MM月dd日 HH:mm:ss')}}</div>",sort: true}
 
                 ]]

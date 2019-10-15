@@ -289,11 +289,11 @@ init=function(){
 		$(".addh,#bd-w1.swiper-container,#bd-w2.swiper-container").css("height",$wh);
 	}
 	var province_options = {
-		url:'/active/road/getProvinceList.do',
-		type:'get',
-		params:''
+		url:'/active/roadv2/getProvinceList.do',
+		method:'get',
+		data:''
 	}
-	getCon.select('bookingdrive_province',province_options)
+	getCon.select('bookingdrive1001_province',province_options)
 	var oSwiper = new Swiper('#bd-w1', {
 		direction: 'vertical',
 		mousewheelControl: true
@@ -330,14 +330,15 @@ $("#bookingdrive1001_city").on("click",function(){
 	if (!tools.verification("#bookingdrive1001_province")) {
 		return false
 	}
-	var provinceName= $("#bbookingdrive1001_province").val();
+	var provinceName= $("#bookingdrive1001_province").val();
+	console.info(provinceName);
 	var params = {
 		"pName":provinceName
 	}
 	var options = {
-		url:'/active/road/getCityList.do',
-		type:'get',
-		params:params
+		url:'/active/roadv2/getCityList.do',
+		method:'get',
+		data:params
 	}
 	getCon.select('bookingdrive1001_city',options)
 	
@@ -349,16 +350,16 @@ $("#bookingdrive1001_dealer").on("click",function(){
 	if (!tools.verification("#bookingdrive1001_city")) {
 		return false
 	}
-	var cityName = $("#bbookingdrive1001_city").val();
+	var cityName = $("#bookingdrive1001_city").val();
     var pName = $("#bookingdrive1001_province").val();
 	var params = {
 		"cName":cityName,
 		"pName":pName
 	}
 	var options = {
-		url:'/active/road/getDealerList.do',
-		type:'get',
-		params:params
+		url:'/active/roadv2/getDealerList.do',
+		method:'get',
+		data:params
 	}
 	getCon.select('bookingdrive1001_dealer',options)
 	
@@ -385,21 +386,24 @@ $("#lecture_submit").on("click", function() {
 		cityName:$("#lecture_city").val()
 	}
 	var options = {
-		url:'/active/road/xxxxxxxxxx.do',
-		type:'get',
-		params:params
+		url:'/active/roadv2/addJdInfo.do',
+		method:'get',
+		data:params
 	}
 	_person.lib.$Ajax(options,function(data){
 		if(data){
-			if(data.status == 0){
+			if(data.status == 0) {
                 $("#bd-w1,#bd-w2").hide();
-				$("#putin_succeed_active").fadeIn('slow');
+                $("#putin_succeed_active").fadeIn('slow');
+            }else  if(data.status == 1){
+                _person.tools.dialog.show({content:"该用户已报过名"});
+                return false;
 			}else{
-                dialog.show({content:data.msg});
+                _person.tools.dialog.show({content:data.msg});
                 return false;
 			}
 		}else{
-			dialog.show({content:data.msg});
+            _person.tools.dialog.show({content:data.msg});
 			return false;
 		}
 	})
@@ -436,9 +440,9 @@ $("#bookingdrive1001_submit").on("click", function() {
 		appointTime:$("#bookingdrive1001_time").val()
 	}
 	var options = {
-		url:'/active/road/addInfo.do',
-		type:'get',
-		params:params
+		url:'/active/roadv2/addInfo.do',
+		method:'get',
+		data:params
 	}
 	_person.lib.$Ajax(options,function(data){
 		if(data){
@@ -458,15 +462,15 @@ $("#bookingdrive1001_submit").on("click", function() {
 					$("#putin_ipt_drive").hide();
 					$("#putin_succeed_drive").fadeIn('slow');
 				}
-			}else if(data.status == 0){
-                dialog.show({content:"该用户已报过名"});
+			}else if(data.status == 1){
+                _person.tools.dialog.show({content:"该用户已报过名"});
                 return false;
 			}else{
-                dialog.show({content:data.msg});
+                _person.tools.dialog.show({content:data.msg});
                 return false;
 			}
 		}else{
-			dialog.show({content:data.msg});
+            _person.tools.dialog.show({content:data.msg});
 			return false;
 		}
 	})
