@@ -299,7 +299,7 @@ init=function(){
 		mousewheelControl: true
 	})
 	tools.generateArray();
-	//tools.audioAutoPlay("music_audio");
+	tools.audioAutoPlay("music_audio");
 	tools.creatList(date_array, data_month);
 	console.log("data_month",data_month)
 	var selectedIndex = [0, 0];
