@@ -530,8 +530,8 @@ img {
 	background-image: url(../images/bookingdrive1001/page_3_bg.jpg);
 }
 .page_wrap.page3 .img_wording1{
-	width: 82%;
-	top: 16%;
+	width: 84%;
+	top: 14%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -539,7 +539,7 @@ img {
 }
 .page_wrap.page3 .img_wording2{
 	width: 88%;
-	top: 73%;
+	top: 71%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -549,8 +549,8 @@ img {
 	background-image: url(../images/bookingdrive1001/page_4_bg.jpg);
 }
 .page_wrap.page4 .img_wording1{
-	width: 82%;
-	top: 16%;
+	width: 84%;
+	top: 15%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -558,7 +558,7 @@ img {
 }
 .page_wrap.page4 .img_wording2{
 	width: 88%;
-	top: 73%;
+	top: 71%;
 	left: 50%;
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
