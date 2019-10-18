@@ -149,6 +149,45 @@ let select_province = [{text: '',value: ''}],
 					text: '深圳',
 					value: 5004
 				}
+			],
+			data_lectureIsDrive = [ // 是否愿意参与活动当天的试乘试驾环节
+				{
+					text: '是',
+					value: 1
+				}, {
+					text: '否',
+					value: 0
+				}
+			],
+			data_lectureShenglanType = [ // 喜欢揽胜家族的哪款车型
+				{
+					text: '揽胜',
+					value: 1
+				}, {
+					text: '揽胜运动版',
+					value: 2
+				}, {
+					text: '揽胜星脉',
+					value: 3
+				}, {
+					text: '揽胜极光',
+					value: 4
+				}
+			],
+			data_lectureIsShopping = [ // 近期是否有购车意向
+				{
+					text: '暂无购车意向',
+					value: 0
+				}, {
+					text: '近一个月',
+					value: 1
+				}, {
+					text: '近三个月',
+					value: 2
+				}, {
+					text: '近半年',
+					value: 3
+				}
 			];
 		switch (id) {
 			case "bookingdrive1001_province":
@@ -163,6 +202,15 @@ let select_province = [{text: '',value: ''}],
 				break;
 			case "lecture_city":
 				data_arr = [data_lectureCity];
+				break;
+			case "lecture_is_drive":
+				data_arr = [data_lectureIsDrive];
+				break;
+			case "lecture_shenglan_type":
+				data_arr = [data_lectureShenglanType];
+				break;
+			case "lecture_is_shopping":
+				data_arr = [data_lectureIsShopping];
 				break;
 			default:
 				data_arr = [select_array];
@@ -190,6 +238,18 @@ let select_province = [{text: '',value: ''}],
 				case "lecture_city":
 					nameEl.value = data_lectureCity[selectedIndex[0]].text;
 					nameEl.setAttribute("data-attr", data_lectureCity[selectedIndex[0]].value);
+					break;
+				case "lecture_is_drive":
+					nameEl.value = data_lectureIsDrive[selectedIndex[0]].text;
+					nameEl.setAttribute("data-attr", data_lectureIsDrive[selectedIndex[0]].value);
+					break;
+				case "lecture_shenglan_type":
+					nameEl.value = data_lectureShenglanType[selectedIndex[0]].text;
+					nameEl.setAttribute("data-attr", data_lectureShenglanType[selectedIndex[0]].value);
+					break;
+				case "lecture_is_shopping":
+					nameEl.value = data_lectureIsShopping[selectedIndex[0]].text;
+					nameEl.setAttribute("data-attr", data_lectureIsShopping[selectedIndex[0]].value);
 					break;
 				default:
 					nameEl.value = data_array[selectedIndex[0]].text;
@@ -313,8 +373,37 @@ $(".activehref").on("click",function(){
 	$("#bd-w2").show();
 	var oSwiper = new Swiper('#bd-w2', {
 		direction: 'vertical',
-		mousewheelControl: true
+		mousewheelControl: true,
+		onSetTransition: function(swiper) {
+			if (swiper.activeIndex == 2) {
+				swiper.params.onlyExternal = true;
+				swiper.disableMousewheelControl();
+			} else {
+				swiper.params.onlyExternal = false;
+				swiper.enableMousewheelControl();
+			}
+		}
 	})
+	var iSwiper = new Swiper('#bd-wh', {
+		direction: 'vertical',
+		slidesPerView: 'auto',
+		freeMode: true,
+		freeModeMomentum: false,
+		mousewheelControl: true,
+		mousewheelSensitivity: 0.5,
+		onSetTransition: function(swiper,translate){
+			//translate 一直为0，不可直接用
+			nowTranslate=swiper.translate;
+			if( typeof(beforeTranslate)=="undefined"){beforeTranslate=0};
+			slideHeight=swiper.slides[0].scrollHeight;
+			swiperHeight=swiper.height
+			if(nowTranslate>-2 && nowTranslate > beforeTranslate){oSwiper.slideTo(1);}
+			beforeTranslate=nowTranslate;
+           },
+		 onTouchEnd:function(swiper){
+			 if(swiper.translate>0){oSwiper.slideTo(1);}
+		 }
+	});
 })
 $(".drivehref").on("click",function(){
 	$("#bd-w1,#bd-w2,#putin_succeed_active").hide();
@@ -322,6 +411,15 @@ $(".drivehref").on("click",function(){
 })
 $("#lecture_city").on("click",function(){
 	tools.selectP("lecture_city");
+})
+$("#lecture_is_drive").on("click",function(){
+	tools.selectP("lecture_is_drive");
+})
+$("#lecture_shenglan_type").on("click",function(){
+	tools.selectP("lecture_shenglan_type");
+})
+$("#lecture_is_shopping").on("click",function(){
+	tools.selectP("lecture_is_shopping");
 })
 $("#bookingdrive1001_province").on("click",function(){
 	tools.selectP("bookingdrive1001_province");
@@ -380,10 +478,22 @@ $("#lecture_submit").on("click", function() {
 	if (!tools.verification("#lecture_city")) {
 		return false
 	}
+	if (!tools.verification("#lecture_is_drive")) {
+		return false
+	}
+	if (!tools.verification("#lecture_shenglan_type")) {
+		return false
+	}
+	if (!tools.verification("#lecture_is_shopping")) {
+		return false
+	}
 	var params = {
 		name:$("#lecture_name").val(),
 		mobile:$("#lecture_mobile").val(),
-		cityName:$("#lecture_city").val()
+		cityName:$("#lecture_city").val(),
+		isDrive:$("#lecture_is_drive").val(),
+		shenglanType:$("#lecture_shenglan_type").val(),
+		isShopping:$("#lecture_is_shopping").val()
 	}
 	var options = {
 		url:'/active/roadv2/addJdInfo.do',
