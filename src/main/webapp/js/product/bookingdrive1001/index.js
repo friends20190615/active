@@ -153,40 +153,40 @@ let select_province = [{text: '',value: ''}],
 			data_lectureIsDrive = [ // 是否愿意参与活动当天的试乘试驾环节
 				{
 					text: '是',
-					value: 1
+					value: '是'
 				}, {
 					text: '否',
-					value: 0
+					value: '否'
 				}
 			],
 			data_lectureShenglanType = [ // 喜欢揽胜家族的哪款车型
 				{
 					text: '揽胜',
-					value: 1
+					value: '揽胜'
 				}, {
 					text: '揽胜运动版',
-					value: 2
+					value: '揽胜运动版'
 				}, {
 					text: '揽胜星脉',
-					value: 3
+					value: '揽胜星脉'
 				}, {
 					text: '揽胜极光',
-					value: 4
+					value: '揽胜极光'
 				}
 			],
 			data_lectureIsShopping = [ // 近期是否有购车意向
 				{
 					text: '暂无购车意向',
-					value: 0
+					value: '暂无购车意向'
 				}, {
 					text: '近一个月',
-					value: 1
+					value: '近一个月'
 				}, {
 					text: '近三个月',
-					value: 2
+					value: '近三个月'
 				}, {
 					text: '近半年',
-					value: 3
+					value: '近半年'
 				}
 			];
 		switch (id) {
@@ -492,9 +492,9 @@ $("#lecture_submit").on("click", function() {
 		mobile:$("#lecture_mobile").val(),
 		cityName:$("#lecture_city").val(),
 		isDrive:$("#lecture_is_drive").val(),
-		shenglanType:$("#lecture_shenglan_type").val(),
+		lsType:$("#lecture_shenglan_type").val(),
 		isShopping:$("#lecture_is_shopping").val(),
-		jobInfor:$("#lecture_job_infor").val()
+		jobInfo:$("#lecture_job_infor").val()
 	}
 	var options = {
 		url:'/active/roadv2/addJdInfo.do',
