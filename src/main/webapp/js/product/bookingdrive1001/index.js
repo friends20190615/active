@@ -493,7 +493,8 @@ $("#lecture_submit").on("click", function() {
 		cityName:$("#lecture_city").val(),
 		isDrive:$("#lecture_is_drive").val(),
 		shenglanType:$("#lecture_shenglan_type").val(),
-		isShopping:$("#lecture_is_shopping").val()
+		isShopping:$("#lecture_is_shopping").val(),
+		jobInfor:$("#lecture_job_infor").val()
 	}
 	var options = {
 		url:'/active/roadv2/addJdInfo.do',
