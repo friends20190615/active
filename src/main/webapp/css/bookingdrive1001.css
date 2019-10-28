@@ -552,10 +552,10 @@ img {
 }
 .page_wrap.page3 .img_wording2 a{
 	position: absolute;
-	width: 20%;
+	width: 30%;
     bottom: 0px;
-	left:25%;
-	height: 1.2rem;
+	left:21%;
+	height: 1.6rem;
 }
 .page_wrap.page4 .img_bg2{
 	background-image: url(../images/bookingdrive1001/page_4_bg.jpg);
@@ -583,10 +583,10 @@ img {
 }
 .page_wrap.page4 .img_wording2 a{
 	position: absolute;
-	width: 20%;
+	width: 30%;
     bottom: 0px;
-	left:27%;
-	height: 1.2rem;
+	left:23%;
+	height: 1.6rem;
 }
 .page_wrap .img_up {
 	width: 8%;
