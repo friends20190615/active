@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <title>天工开物</title>
+    <link rel="stylesheet" type="text/css" href="../css/tiangong.css?v=20191029" />
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var fontSize = 17 * (clientWidth / 320);
+                    fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                    docEl.style.fontSize = fontSize + 'px';
+                    var dpi = window.devicePixelRatio;
+                    docEl.setAttribute('data-dpi', dpi);
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            document.documentElement.setAttribute("data-w", document.documentElement.clientWidth),
+            document.documentElement.setAttribute("data-h", document.documentElement.clientHeight)
+        })(document, window);
+    </script>
+</head>
+<body>
+    <div class="swiper-container waph" id="index-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide index_wrap index1">
+                <img src="../images/tiangong/index/page1_bg.jpg" class="img_bg">
+                <img src="../images/tiangong/index/page1_f1.png" class="img_gd">
+                <img src="../images/tiangong/index/page1_f2.png" class="img_gd">
+                <img src="../images/tiangong/index/page1_f3.png" class="img_gd">
+                <img src="../images/tiangong/index/page1_f4.png" class="img_gd">
+                <img src="../images/tiangong/index/page1_f5.png" class="img_gd">
+                <img src="../images/tiangong/index/page1_f6.png" class="img_gd">
+                <img src="../images/tiangong/index/icon_up.png" class="img_up">
+            </div>
+            <div class="swiper-slide index_wrap index2">
+                <img src="../images/tiangong/index/page2_bg.png" class="img_bg">
+                <img src="../images/tiangong/index/page2_img2.png" class="img_gd">
+                <div class="svg-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-box">
+                        <!--<a xlink:href="http://www.zuche.com">
+                            <polygon points="0 0,0 320,180 120 ,180 0,320" id="box1" style="fill:rgba(255, 255, 255, 0);stroke:red;" />
+                        </a>
+                        <a xlink:href="http://www.zuche.com">
+                            <polygon points="190 120,370 320,370 0 ,190 0,320" id="box1" style="fill:rgba(255, 255, 255, 0);stroke:red;" />
+                        </a>
+                        <a xlink:href="http://www.zuche.com">
+                            <polygon points="20 320,20 320,20 660 ,180 660,320" id="box1" style="fill:rgba(255, 255, 255, 0);stroke:red;" />
+                        </a>-->
+                        <a xlink:href="http://www.zuche.com">
+                            <polygon points="190 120,370 320,370 0 ,190 0,320" id="box1" style="fill:rgba(255, 255, 255, 0);stroke:red;" />
+                        </a>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="landscape_tip"><p>为了更好的体验，请使用竖屏浏览</p></div>
+    
+    <script type="text/javascript" src="../js/lib/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/lib/swiper.min.js"></script>
+    <script type="text/javascript" src="../js/utils/core2.js"></script>
+    <script type="text/javascript" src="../js/product/tiangong/index.js"></script>
+</body>
+</html>
