@@ -39,6 +39,7 @@ a {
 button,fieldset,img,input {
 	border: 0
 }
+button{background-color:transparent}
 
 button,input,select,textarea {
 	font-size: 100%
@@ -53,6 +54,10 @@ input {
 	-webkit-appearance: none;
 	border-radius: 0;
 	-webkit-user-select: text
+}
+.img-w{
+	width: 100%;
+	vertical-align: middle;
 }
 
 .maxminw {
@@ -412,6 +417,12 @@ img {
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%)
 }
+.t_translate50 {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%)
+}
 
 .img_w100 {
 	width: 100%;
@@ -478,8 +489,64 @@ img {
 	top:0px;
 	left:0px;
 }
-
-
+.pres-bg{
+	background: url(../images/tiangong/com_bg.jpg) left top no-repeat;
+	background-size: 100% auto;
+}
+.pres-wrap{
+	position: relative;
+	min-height: 500px;
+	height: 100%;
+}
+.pres-wrap .infor{
+	position: relative;
+	color:#313131;
+	line-height: 1.3rem;
+	font-size: 0.63rem;
+	min-height: 72%;
+	padding:0.6rem 0;
+	margin:0 0.5rem 0.5rem 0.5rem;
+	background: rgba(255,255,255,.74);
+}
+.pres-wrap .infor p{
+	padding:0px 0.6rem;
+	text-indent:1.1rem;
+}
+.pres-wrap .infor p:nth-child(1){
+	padding-top:0.9rem;
+}
+.t_main{position:relative}
+.t_main.h100{height:100%}
+.t_main .abs_wrap,.t_main .abs_bg{position:absolute;width:100%;height:100%;top:0;left:0;overflow:hidden}
+.t_main.h100 .img_wzbg{height:100%}
+.t_main .abs_bg img{height: 100%;position: relative;top:50%;left:0px;-webkit-transform:translate(0%,-50%);transform:translate(0%,-50%)}
+.t_header_wrap{position:relative;height:45%}
+.t_header_wrap .img_header{position:absolute;width:100%}
+.t_mobile_form_wrap{position:relative;height:40%}
+.t_mobile_form_wrap ul{position:relative;width:82%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);
+	font-size: 0.85rem;
+	line-height: 1.5rem;
+}
+.t_mobile_form_wrap ul li.butwrap{text-align: center;padding-top:4rem;}
+.t_mobile_form_wrap input{border-radius:.3rem;height:1.9rem;border:solid 1px #919a8f;border-radius: 1.9rem;text-indent: 1rem}
+.t_mobile_form_wrap button,.t_mobile_form_wrap input{width:100%;text-align:left;font-size:.8rem;color:#000;margin-bottom:.6rem;}
+.t_mobile_form_wrap input::-webkit-input-placeholder{color:#000}
+.t_mobile_form_wrap button{width: 50%;}
+.t_result_wrap{
+	width: 80%;
+	margin:0 auto;
+	font-size: 0.65rem;
+	line-height:1.3rem; 
+	text-align: center;
+}
+.t_result_wrap b{font-size:1.2rem;font-weight: normal;display:block;text-align: center;padding:1.4rem 0;}
+@media all and (orientation : landscape) { 
+	body,.t_main.h100{height: auto}
+	.t_main.h100 .img_wzbg{height: auto}
+	.landscape_tip {
+		display: block
+	}
+}
 
 
 
