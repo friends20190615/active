@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <title>天工开物</title>
+    <link rel="stylesheet" type="text/css" href="../../css/tiangong.css?v=20191029" />
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var fontSize = 17 * (clientWidth / 320);
+                    fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                    docEl.style.fontSize = fontSize + 'px';
+                    var dpi = window.devicePixelRatio;
+                    docEl.setAttribute('data-dpi', dpi);
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            document.documentElement.setAttribute("data-w", document.documentElement.clientWidth),
+            document.documentElement.setAttribute("data-h", document.documentElement.clientHeight)
+        })(document, window);
+    </script>
+</head>
+<body>
+    <audio src="../../images/tiangong/m_02.mp3" id="my_audio"></audio>
+    <div class="product-exhibition-wrap maxminw h100">
+        <img src="../../images/tiangong/apply/wzbg.png" class="img_wzbg img-w" />
+        <div class="author-box">
+            <div class="padd">
+                <div class="img-b">
+                    <img src="../../images/tiangong/chun/author-bg.png" class="img-w" />
+                    <img src="../../images/tiangong/chun/author-2.jpg" class="img-author" />
+                </div>
+                <dl class="infor-b">
+                    <dt>卢 志 荣</dt>
+                    <dd>
+                        DIMENSIONE CHI WING LO®及“一方”创办人，看见造物第二任设计师总监，著名海外华人设计师，以建筑、空间、家具设计享誉欧洲。他一直以对理念的净化、诗意的诠释、细节的关注备受意大利及国际设计界的推崇，是极少数被意大利当代设计界所认可的华裔设计师。
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

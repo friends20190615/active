@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <title>天工开物</title>
+    <link rel="stylesheet" type="text/css" href="../../css/tiangong.css?v=20191029" />
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var fontSize = 17 * (clientWidth / 320);
+                    fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                    docEl.style.fontSize = fontSize + 'px';
+                    var dpi = window.devicePixelRatio;
+                    docEl.setAttribute('data-dpi', dpi);
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            document.documentElement.setAttribute("data-w", document.documentElement.clientWidth),
+            document.documentElement.setAttribute("data-h", document.documentElement.clientHeight)
+        })(document, window);
+    </script>
+</head>
+<body>
+    <audio src="../../images/tiangong/m_02.mp3" id="my_audio"></audio>
+    <div class="product-exhibition-wrap maxminw h100">
+        <img src="../../images/tiangong/apply/wzbg.png" class="img_wzbg img-w" />
+        <div class="author-box">
+            <div class="padd">
+                <div class="img-b">
+                    <img src="../../images/tiangong/chun/author-bg.png" class="img-w" />
+                    <img src="../../images/tiangong/chun/author-3.jpg" class="img-author" />
+                </div>
+                <dl class="infor-b">
+                    <dt>杨 泳 梁</dt>
+                    <dd>
+                        生于1980年，上海，目前生活和 工作于纽约和上海。杨自幼就接受中国传统艺术的训练，后来2003年毕业于上海中国美术学院视觉传达专业。杨利用传统艺术与当代艺术之间的联系，运用现代语言和数字技术来实现古代东方美学和文人信仰。他的作品曾在各国博物馆和国际双年展中展出，作品20多个世界各地的公共机构收集。
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

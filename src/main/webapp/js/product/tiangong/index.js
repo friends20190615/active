@@ -92,7 +92,7 @@ window.onload = function(argument) {
 		],
 		"strokeStyle": "black",
 		"strokeWidth": 0,
-		"strokeUrl":"456"
+		"strokeUrl":"tiangong/chun.html"
 	}, {
 		"coordinates": [
 			[w * 0.15, h * 0.5],
