@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <title>天工开物</title>
+    <link rel="stylesheet" type="text/css" href="../../css/tiangong.css?v=20191029" />
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var fontSize = 17 * (clientWidth / 320);
+                    fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                    docEl.style.fontSize = fontSize + 'px';
+                    var dpi = window.devicePixelRatio;
+                    docEl.setAttribute('data-dpi', dpi);
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            document.documentElement.setAttribute("data-w", document.documentElement.clientWidth),
+            document.documentElement.setAttribute("data-h", document.documentElement.clientHeight)
+        })(document, window);
+    </script>
+</head>
+<body>
+    <audio src="../../images/tiangong/m_02.mp3" id="my_audio"></audio>
+    <div class="product-exhibition-wrap maxminw h100">
+        <img src="../../images/tiangong/apply/wzbg.png" class="img_wzbg img-w" />
+        <div class="product-box">
+            <div class="img-b"><img src="../../images/tiangong/chun/list-1-xiao.jpg" class="img-w" /></div>
+            <div class="infor-b">
+                <dl class="zuopin">
+                    <dt>《玫瑰条案，NO.1》 昱寒</dt>
+                    <dd class="w100">2017年</dd>
+                    <dd>胡桃木</dd>
+                    <dd>作品1 </dd>
+                    <dd>140x45x87cm</dd>
+                    <dd>展出位置：纯单元A号位</dd>
+                </dl>
+                <a href="javascript:;" class="link"></a>
+                <dl class="jieshao">
+                    <dt>作品介绍</dt>
+                    <dd>昱寒的设计承袭了明式家具所着重的结构性设计，简化了制造工序，让家具产生了连续的曲线之美。他运用“解构和重建”的手法对传统明式家具进行拆分和重组，赋予古典家具现代艺术生命。玫瑰条案用玫瑰刺形状衔接两根闭合的圈，表述了已有经验和想象组合的条案。</dd>
+                </dl>
+            </div>
+            <div class="jhst"></div>
+        </div>
+        <div class="author-box" style="display: none;">
+            <div class="padd">
+                <div class="img-b">
+                    <img src="../../images/tiangong/chun/author-bg.png" class="img-w" />
+                    <img src="../../images/tiangong/chun/author-1.jpg" class="img-author" />
+                </div>
+                <dl class="infor-b">
+                    <dt>昱 寒</dt>
+                    <dd>
+                        昱寒是极少数可以任意游走在雕塑、油画、水墨以及园林、建筑、设计之间，而又以鲜明独特的观点、贯串始终的中国当代艺术家。他的作品内敛而有张力，格调高远，简洁克己，以其安静审慎的视角表达着对当下世间万物的态度。
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="player-wrap">
+            <div class="time_progress">
+                <div class="progress">
+                    <p class="bar" id="bar"></p>
+                    <div class="btn" id="btn"></div>
+                </div>
+            </div>
+            <div class="bottom-wrap">
+                <div class="contros">
+                    <button class="button on-play" onClick="playPause()"></button>
+                </div>
+                <div class="time">
+                    <span class="now_time" id="now_time">00:00</span>
+                    <span class="all_time" id="all_time" style="display: none">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="../../js/lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    var my_audio = document.getElementById("my_audio");
+    var p_all=$(".progress").width();
+    //暂停或播放
+        function playPause()
+        { 
+            if(my_audio.paused)
+                {
+                    my_audio.play();
+                }
+                else
+                {
+                    my_audio.pause();
+                }     
+        }
+    //
+    my_audio.onplay=function(){
+        $(".button").attr('class','button on-pause')
+        }
+    my_audio.onpause=function(){
+        $(".button").attr('class','button on-play')
+        }       
+    //audio播放的时候实时获取当前播放时间
+        my_audio.ontimeupdate = function()
+        {
+            //获取当前播放时间
+            document.getElementById("now_time").innerHTML = timeFormat(my_audio.currentTime);
+            //当前的长度
+            now_long=my_audio.currentTime/my_audio.duration*p_all;
+            $(".bar").css({width:now_long});
+            var btn_l=now_long-10+'px';
+            $(".btn").css({left:btn_l});
+            //
+            addListenTouch()
+            
+        };
+    //页面一旦加入就获取audio的总时间
+        my_audio.onprogress = function()
+        {
+            document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+            //总的长度
+            
+            
+        };  
+    //时间转化
+        function myFunction() 
+        {
+        // 显示 id="now_time" 的 span 元素中音频的播放位置 
+            
+        }   
+    // Time format converter - 00:00//时间格式转换器- 00:00
+        var timeFormat = function(seconds){
+            var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+            var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+            return m+":"+s;
+        };  
+    //手动拉拽进度条的部分
+    function addListenTouch(){
+        //var speed=$('.had-play');
+        var btn=document.getElementById("btn");
+        document.getElementById("btn").addEventListener("touchstart", touchStart, false);
+        document.getElementById("btn").addEventListener("touchmove", touchMove, false);
+        document.getElementById("btn").addEventListener("touchend", touchEnd, false);
+        }
+    function touchStart(e){
+        e.preventDefault();
+        var touch=e.touches[0];
+        startX=touch.pageX;
+        my_audio.pause();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);  
+        }
+    function touchMove(e){//滑动
+        e.preventDefault();
+        var touch=e.touches[0];
+        x=touch.pageX-startX//滑动的距离
+        //btn.style.webkitTransform='translate('+0+'px,'+y+'px)';
+        var widthBar=now_long+x;
+        //
+        $(".bar").css({width:widthBar});
+        if(widthBar<p_all)
+            {
+            //  
+            $("#btn").css({left:widthBar-10+'px'});
+            $("#bar").css({width:widthBar});    
+            }//不让进度条超出页面
+        //
+        var yu=widthBar/p_all*my_audio.duration;
+        document.getElementById("now_time").innerHTML = timeFormat(yu);
+        }
+    function touchEnd(e){//手指离开屏幕
+        e.preventDefault();
+        now_long=parseInt(btn.style.left);
+        var touch=e.touches[0];
+        var dragPaddingLeft=btn.style.left;
+        var change=dragPaddingLeft.replace("px","");
+        numDragpaddingLeft=parseInt(change);
+        var currentTime=(numDragpaddingLeft/(p_all-20)*my_audio.duration);
+        my_audio.play();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);  
+        my_audio.currentTime=currentTime;
+        }   
+    $(function(){
+        $('.link').on('click',function(){
+
+        })
+    })
+</script>
+</body>
+</html>
