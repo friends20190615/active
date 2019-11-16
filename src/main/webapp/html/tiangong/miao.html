@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <meta http-equiv="Expires" content="0">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <title>天工开物</title>
+    <link rel="stylesheet" type="text/css" href="../../css/tiangong.css?v=20191029" />
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var fontSize = 17 * (clientWidth / 320);
+                    fontSize =Math.round((fontSize > 27) ? 27 : fontSize);
+                    docEl.style.fontSize = fontSize + 'px';
+                    var dpi = window.devicePixelRatio;
+                    docEl.setAttribute('data-dpi', dpi);
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            document.documentElement.setAttribute("data-w", document.documentElement.clientWidth),
+            document.documentElement.setAttribute("data-h", document.documentElement.clientHeight)
+        })(document, window);
+    </script>
+</head>
+<body class="pres-bg">
+    <div class="product-list-wrap maxminw">
+        <img src="../../images/tiangong/miao/font.png" class="img-w">
+        <a href="miaopresentation.html"><img src="../../images/tiangong/com_jieshao.png" class="a-presentation"></a>
+        <div class="list-wrap">
+            <ul class="left-box">
+                <li>
+                    <a href="miaolist1.html">
+                        <img src="../../images/tiangong/miao/list_1_xiao.jpg" class="img-w">
+                        <label>《屏风》</label>
+                        <span>林于思</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="miaolist2.html">
+                        <img src="../../images/tiangong/miao/list_2_xiao.jpg" class="img-w">
+                        <label>《石如飞白》</label>
+                        <span>乐子砚</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="miaolist3.html">
+                        <img src="../../images/tiangong/miao/list_3_xiao.jpg" class="img-w">
+                        <label class="hl">《艺木》</label>
+                    </a>
+                </li>
+            </ul>
+            <ul class="right-box">
+                <li>
+                    <a href="miaolist4.html">
+                        <img src="../../images/tiangong/miao/list_4_xiao.jpg" class="img-w">
+                        <label>《凭几》</label>
+                        <span>昱寒</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="miaolist5.html">
+                        <img src="../../images/tiangong/miao/list_5_xiao.jpg" class="img-w">
+                        <label class="hl">《刺子绣》</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="miaolist6.html">
+                        <img src="../../images/tiangong/miao/list_6_xiao.jpg" class="img-w" >
+                        <label class="hl">《凌光切子》</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

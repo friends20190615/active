@@ -113,7 +113,7 @@ window.onload = function(argument) {
 		],
 		"strokeStyle": "black",
 		"strokeWidth": 0,
-		"strokeUrl":"***"
+		"strokeUrl":"tiangong/miao.html"
 	}, {
 		"coordinates": [
 			[w * 0.5, 0],

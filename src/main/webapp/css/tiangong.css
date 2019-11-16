@@ -489,12 +489,62 @@ img {
 	top:0px;
 	left:0px;
 }
+.index2 .img_center{
+	width: 28%;
+    top: 48%;
+    left: 51%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%)
+}
 .svg-wrap{
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top:0px;
 	left:0px;
+}
+.svg-icon{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0px;
+	left:0px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-start;
+}
+.svg-icon span.icon{
+	display: block;
+	position: relative;
+	height: 50%;
+	width: 50%;
+}
+.svg-icon span.icon img{
+	width: 30%;
+	top:25%;
+	left:50%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%)
+}
+.svg-icon span.icon2 img{
+	width: 26%;
+    top: 26%;
+    left: 62%;
+}
+.svg-icon span.icon3 img{
+    top: 70%;
+    left: 49%;
+}
+.svg-icon span.icon4 img{
+    top: 70%;
+    left: 54%;
+}
+.svg-icon span.icon5{
+    top: 70%;
+    left: 54%;
 }
 .pres-bg{
 	background:#9dbb95 url(../images/tiangong/com_bg.jpg) left top no-repeat;
@@ -593,6 +643,9 @@ img {
 .list-wrap label{
 	font-size: 0.7rem;
 	padding-top:0.3rem;
+}
+.list-wrap label.hl{
+	padding:0.6rem 0 0.35rem 0;
 }
 .chunfontbg{
 	background:#9dbb95 url(../images/tiangong/chun/chunfontbg.jpg) left top no-repeat;
