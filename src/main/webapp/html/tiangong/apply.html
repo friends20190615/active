@@ -109,12 +109,12 @@
                     mobile:$("#mobile").val()
                 }
                 var options = {
-                    url:'/active/roadv2/addInfo.do',
+                    url:'/active/tg/cj.do',
                     method:'get',
                     data:params
                 }
                 _person.lib.$Ajax(options,function(data){
-                    if(data){
+                    if(data.msg=="success"){
                         if(data.status == 0){
                             $(".t_mobile_form_ul").hide();
                             $(".t_result_wrap, .succeed_state").fadeIn('slow');

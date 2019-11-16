@@ -37,6 +37,8 @@
         <property name="removeAbandonedTimeout"><value>180</value></property>
     </bean>
 
+    <bean id="initConfigTg" lazy-init="false" class="com.active.common.init.InitConfigTg" init-method="init"/>
+
     <!-- MyBatis配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>

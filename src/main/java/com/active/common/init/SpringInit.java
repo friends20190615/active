@@ -6,6 +6,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class SpringInit implements ServletContextListener {
@@ -15,6 +16,8 @@ public class SpringInit implements ServletContextListener {
     public SpringInit() {
         super();
     }
+
+    public static AtomicInteger TGCOUNT = new AtomicInteger(0);
     
     @Override
     public void contextInitialized(ServletContextEvent event) {
