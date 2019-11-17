@@ -4,10 +4,10 @@
 }
 @font-face{
      font-family: 'LEXUS_HSBU'; 
-     src: url('../images/tiangong/font/LEXUS_HSBU.eot');
-     src:url('../images/tiangong/font/LEXUS_HSBU.woff') format('woff'),
-         url('../images/tiangong/font/LEXUS_HSBU.ttf') format('truetype'),
-         url('../images/tiangong/font/LEXUS_HSBU.svg') format('svg');
+     src: url('../images/tiangongv1/font/LEXUS_HSBU.eot');
+     src:url('../images/tiangongv1/font/LEXUS_HSBU.woff') format('woff'),
+         url('../images/tiangongv1/font/LEXUS_HSBU.ttf') format('truetype'),
+         url('../images/tiangongv1/font/LEXUS_HSBU.svg') format('svg');
 }
 body,button,input,select,textarea {
 	font-family: LEXUS_HSBU,-apple-system,Helvetica,Hiragino Sans GB W3,Microsoft YaHei,arial,sans-serif;
@@ -547,13 +547,18 @@ img {
     left: 54%;
 }
 .pres-bg{
-	background:#9dbb95 url(../images/tiangong/com_bg.jpg) left top no-repeat;
+	background:#9dbb95 url(../images/tiangongv1/presentationsoftware/info_bg.jpg) left top no-repeat;
+	background-size: 100% auto;
+}
+.js-bg{
+	background:#9dbb95 url(../images/tiangongv1/presentationsoftware/info_bg.jpg) left top no-repeat;
 	background-size: 100% auto;
 }
 .pres-wrap{
 	position: relative;
 	min-height: 500px;
 	height: 100%;
+
 }
 .pres-wrap .infor{
 	position: relative;
@@ -568,6 +573,7 @@ img {
 .pres-wrap .infor p{
 	padding:0px 0.6rem;
 	text-indent:1.1rem;
+	line-height: 1.05rem
 }
 .pres-wrap .infor p:nth-child(1){
 	padding-top:0.9rem;
@@ -576,17 +582,22 @@ img {
 .t_main.h100{height:100%}
 .t_main .abs_wrap,.t_main .abs_bg{position:absolute;width:100%;height:100%;top:0;left:0;overflow:hidden}
 .t_main.h100 .img_wzbg{height:100%}
-.t_main .abs_bg img{width: 100%;position: relative;top:50%;left:0px;-webkit-transform:translate(0%,-50%);transform:translate(0%,-50%)}
-.t_header_wrap{position:relative;height:45%}
+.t_main .abs_bg img{width: 100%;height: 100%}
+.t_header_wrap{position:relative;height:48%}
 .t_header_wrap .img_header{position:absolute;width:100%}
-.t_mobile_form_wrap{position:relative;height:40%}
-.t_mobile_form_wrap ul{position:relative;width:82%;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);
+.t_mobile_form_wrap{
+	position:relative;
+	height:50%;
+	background:url(../images/tiangongv1/apply/logo.png) no-repeat 95% 91%;
+	background-size: 15%;
+}
+.t_mobile_form_wrap ul{position:relative;width:82%;margin:0 auto;
 	font-size: 0.85rem;
 	line-height: 1.5rem;
 }
-.t_mobile_form_wrap ul li.butwrap{text-align: center;padding-top:4rem;}
+.t_mobile_form_wrap ul li.butwrap{text-align: center;padding-top:2rem;}
 .t_mobile_form_wrap input{border-radius:.3rem;height:1.9rem;border:solid 1px #919a8f;border-radius: 1.9rem;text-indent: 1rem}
-.t_mobile_form_wrap button,.t_mobile_form_wrap input{width:100%;text-align:left;font-size:.8rem;color:#000;margin-bottom:.6rem;}
+.t_mobile_form_wrap button,.t_mobile_form_wrap input{width:100%;text-align:left;font-size:.8rem;color:#000;margin-bottom:.4rem;}
 .t_mobile_form_wrap input::-webkit-input-placeholder{color:#000}
 .t_mobile_form_wrap button{width: 50%;}
 .t_result_wrap{
@@ -595,6 +606,7 @@ img {
 	font-size: 0.65rem;
 	line-height:1.3rem; 
 	text-align: center;
+	padding-top:2rem;
 }
 .t_result_wrap b{font-size:1.2rem;font-weight: normal;display:block;text-align: center;padding:1.4rem 0;}
 .product-list-wrap{
@@ -629,26 +641,36 @@ img {
 	-moz-box-shadow:0px 6px 16px #5B5B5B;
 	-webkit-box-shadow:0px 6px 16px #5B5B5B; 
 	box-shadow:0px 6px 16px #5B5B5B;
-	padding-bottom:0.3rem;
-	margin-bottom:0.6rem;
+	padding-bottom:0.1rem;
+	margin-bottom:0.4rem;
+}
+.list-wrap .miao{
+	padding-bottom:1rem;
+}
+.list-wrap .miao li{
+	padding-bottom:0.5rem;
 }
 .list-wrap label,.list-wrap span{
 	display:block;
 	text-align: center;
 	color:#292929;
 	font-size: 0.55rem;
-	line-height: 1.1rem;
+	line-height: 1rem;
 	letter-spacing:0.1rem;
+	 white-space: nowrap;
 }
 .list-wrap label{
 	font-size: 0.7rem;
-	padding-top:0.3rem;
+	padding-top:0.2rem;
 }
-.list-wrap label.hl{
-	padding:0.6rem 0 0.35rem 0;
+.list-wrap .miao label.hl{
+	padding:.8rem 0 0.1rem 0;
+}
+.list-wrap .miao label{
+	padding-top:0.4rem;
 }
 .chunfontbg{
-	background:#9dbb95 url(../images/tiangong/chun/chunfontbg.jpg) left top no-repeat;
+	background:#9dbb95 url(../images/tiangongv1/chun/chunfontbg.jpg) left top no-repeat;
 	background-size: 100% auto;
 }
 .product-exhibition-wrap{
@@ -676,7 +698,7 @@ img {
 	height: 1rem;
 	right:1.2rem;
 	top:1.7rem;
-	background: url(../images/tiangong/chun/jiantou.png) left top no-repeat;
+	background: url(../images/tiangongv1/chun/jiantou.png) left top no-repeat;
 	background-size: 100% auto;
 }
 
@@ -722,7 +744,7 @@ img {
 	height: 100%;
 	top:0px;
 	left:0px;
-	background: url(../images/tiangong/chun/author-bg.jpg) left top no-repeat;
+	background: url(../images/tiangongv1/chun/author-bg.jpg) left top no-repeat;
 	background-size: 100% 100%;
 }
 .author-box .padd{
@@ -743,7 +765,7 @@ img {
 	line-height: 1.9rem;
 	padding:0.7rem 0;
 	width: 73%;
-	background: url(../images/tiangong/chun/author-lable-bg.png) left center no-repeat;
+	background: url(../images/tiangongv1/chun/author-lable-bg.png) left center no-repeat;
 	background-size:100% auto;
 	text-align: center;
 	color:#010101;
@@ -778,7 +800,7 @@ img {
 	background-position: center center;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
-	background-image: url(../images/tiangong/handle.png);
+	background-image: url(../images/tiangongv1/handle.png);
 	position:absolute;position:absolute;top:-0.45rem;}
 .player-wrap .button{
 	display:block;width: 1.4rem;height: 1.4rem;
@@ -787,10 +809,10 @@ img {
 	background-repeat: no-repeat;
 }
 .player-wrap .on-play{
-	background-image: url(../images/tiangong/onplay.png);
+	background-image: url(../images/tiangongv1/onplay.png);
 }
 .player-wrap .on-pause{
-	background-image: url(../images/tiangong/onpause.png);
+	background-image: url(../images/tiangongv1/onpause.png);
 }
 .player-wrap .bottom-wrap {
 	display: flex;
