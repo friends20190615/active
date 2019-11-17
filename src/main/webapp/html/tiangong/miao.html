@@ -84,5 +84,22 @@
             </ul>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>

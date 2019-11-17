@@ -42,5 +42,22 @@
             <p>在雷克萨斯的设计语言中，“纯”意味着通过持续精进打磨，打造   出大胆而富有张力的纯粹美感。本篇章“纯”的空间内，展出了6   件当代中国设计作品，分别来自陈旻、卢志荣、石大宇、杨泳梁、昱寒、张雷、Jovana Zhang和Christoph John。穿梭于作品之间的丝线勾画出似有似无的连接，代表着东方设计创作中传统与当代的美学、工艺、技术的文脉传承。6位艺术家设计师的创作根基于东方传统文化，在东方美学和匠艺中不断探索与创新，在单纯的理念上坚持精进打磨，塑造出富有个性的设计语言和极致纯粹美学。</p>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/chun/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>
