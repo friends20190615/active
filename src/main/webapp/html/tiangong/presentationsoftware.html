@@ -48,5 +48,22 @@
             <p>本次展览由现代传播旗下《周末画报》主办，Modern Art策划，建筑师吕恒中及其团队担任展览的空间设计，建筑师张硕炯担任“纯”单元空间装置的设计，展览中部分雷克萨斯历史文献资料由王洪浩提供。本次展览由雷克萨斯独家品牌赞助。</p>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>

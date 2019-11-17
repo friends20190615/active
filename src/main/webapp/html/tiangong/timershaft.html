@@ -36,13 +36,29 @@
 </head>
 <body>
     <div class="timershaft-wrap maxminw">
-        <img src="../../images/tiangongv1/timershaft/img_01.jpg" class="img-w">
-        <a href="timershaftpresentation.html"><img src="../../images/tiangongv1/timershaft/img_02.jpg" class="img-w"></a>
-        <img src="../../images/tiangongv1/timershaft/img_03.jpg" class="img-w">
-        <img src="../../images/tiangongv1/timershaft/img_04.jpg" class="img-w">
-        <img src="../../images/tiangongv1/timershaft/img_05.jpg" class="img-w">
-        <img src="../../images/tiangongv1/timershaft/img_06.jpg" class="img-w">
-        <img src="../../images/tiangongv1/timershaft/img_07.jpg" class="img-w">
+        <img src="../../images/tiangongv1/timershaft/img_new_01.jpg" class="img-w">
+        <a href="timershaftpresentation.html"><img src="../../images/tiangongv1/timershaft/img_new_02.jpg" class="img-w"></a>
+        <img src="../../images/tiangongv1/timershaft/img_new_03.jpg" class="img-w">
+        <img src="../../images/tiangongv1/timershaft/img_new_04.jpg" class="img-w">
+        <img src="../../images/tiangongv1/timershaft/img_new_05.jpg" class="img-w">
+        <img src="../../images/tiangongv1/timershaft/img_new_06.jpg" class="img-w">
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>

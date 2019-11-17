@@ -42,5 +42,22 @@
             <p>“妙”篇章的观展重点在于空间与感受。庭院内外，“线”的视      觉语言以抽象和具象的形态连接：装置“山水行”优雅的曲线，   枯山水一道道规整而禅意的画线，茶室中凭几委婉柔美的曲线…… 这些“线” 所表现出形式美、韵律美以及装饰美, 蕴含着东方审美的精髓。茶室与庭院之间，白色几何切割的石头造型与白色细沙石形成一个极简主义的 “未来花园” ，呼应 “枯山水” 的东方园林概念，为参观者营造一个闹中取静的冥想时刻。茶室之中，设计师昱寒、陶艺家乐子砚、广东当代艺术家林于思以及实验音乐人T.BB携手呈献充满人文和东方雅致生活的人居空间，雷克萨斯独  具特色的匠心工艺——凌光切子、艺木、刺子绣等也在这一单元呈现，旨在与观众一同预见生活之美，想象非凡之境。</p>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/miao/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>

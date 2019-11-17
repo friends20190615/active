@@ -71,10 +71,26 @@
             </div>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
     <script type="text/javascript" src="../../js/lib/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../../js/utils/core2.js"></script>
     <script type="text/javascript">
+
         $(function(){
+            function audioAutoPlay(id){
+                var audio = document.getElementById(id),
+                    play = function(){
+                        audio.play();
+                        document.removeEventListener("touchstart",play,false);
+                    };
+                //audio.play();
+                document.addEventListener("WeixinJSBridgeReady",function(){
+                    play()
+                },false);
+            }
+            audioAutoPlay('music_audio');
             var Tools = {
                 verification:function(type){
                     var that = $(type);

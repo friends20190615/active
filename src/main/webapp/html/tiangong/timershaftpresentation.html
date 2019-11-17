@@ -43,5 +43,22 @@
             <p>90年代不仅是以设计预知便携式、移动化需求的时代，也是雷克萨斯品牌刚刚创立的时代。本篇章在珍贵的文献资料中， 梳理了雷克萨斯近三十年的发展历程，为观众阐释品牌打造其独有的设计语言的历程，并配合VR视频，与观众共同回顾品牌发展的里程碑。</p>
         </div>
     </div>
+    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
+        <audio src="../../images/tiangongv1/timershaft/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    </div>
+    <script type="text/javascript">
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id),
+                play = function(){
+                    audio.play();
+                    document.removeEventListener("touchstart",play,false);
+                };
+            //audio.play();
+            document.addEventListener("WeixinJSBridgeReady",function(){
+                play()
+            },false);
+        }
+        audioAutoPlay('music_audio');
+    </script>
 </body>
 </html>
