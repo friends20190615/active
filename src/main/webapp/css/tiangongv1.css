@@ -4,10 +4,10 @@
 }
 @font-face{
      font-family: 'LEXUS_HSBU'; 
-     src: url('../images/tiangong/font/LEXUS_HSBU.eot');
-     src:url('../images/tiangong/font/LEXUS_HSBU.woff') format('woff'),
-         url('../images/tiangong/font/LEXUS_HSBU.ttf') format('truetype'),
-         url('../images/tiangong/font/LEXUS_HSBU.svg') format('svg');
+     src: url('../images/tiangongv1/font/LEXUS_HSBU.eot');
+     src:url('../images/tiangongv1/font/LEXUS_HSBU.woff') format('woff'),
+         url('../images/tiangongv1/font/LEXUS_HSBU.ttf') format('truetype'),
+         url('../images/tiangongv1/font/LEXUS_HSBU.svg') format('svg');
 }
 body,button,input,select,textarea {
 	font-family: LEXUS_HSBU,-apple-system,Helvetica,Hiragino Sans GB W3,Microsoft YaHei,arial,sans-serif;
@@ -547,11 +547,11 @@ img {
     left: 54%;
 }
 .pres-bg{
-	background:#9dbb95 url(../images/tiangong/presentationsoftware/info_bg.jpg) left top no-repeat;
+	background:#9dbb95 url(../images/tiangongv1/presentationsoftware/info_bg.jpg) left top no-repeat;
 	background-size: 100% auto;
 }
 .js-bg{
-	background:#9dbb95 url(../images/tiangong/presentationsoftware/info_bg.jpg) left top no-repeat;
+	background:#9dbb95 url(../images/tiangongv1/presentationsoftware/info_bg.jpg) left top no-repeat;
 	background-size: 100% auto;
 }
 .pres-wrap{
@@ -588,7 +588,7 @@ img {
 .t_mobile_form_wrap{
 	position:relative;
 	height:50%;
-	background:url(../images/tiangong/apply/logo.png) no-repeat 95% 91%;
+	background:url(../images/tiangongv1/apply/logo.png) no-repeat 95% 91%;
 	background-size: 15%;
 }
 .t_mobile_form_wrap ul{position:relative;width:82%;margin:0 auto;
@@ -670,7 +670,7 @@ img {
 	padding-top:0.4rem;
 }
 .chunfontbg{
-	background:#9dbb95 url(../images/tiangong/chun/chunfontbg.jpg) left top no-repeat;
+	background:#9dbb95 url(../images/tiangongv1/chun/chunfontbg.jpg) left top no-repeat;
 	background-size: 100% auto;
 }
 .product-exhibition-wrap{
@@ -698,7 +698,7 @@ img {
 	height: 1rem;
 	right:1.2rem;
 	top:1.7rem;
-	background: url(../images/tiangong/chun/jiantou.png) left top no-repeat;
+	background: url(../images/tiangongv1/chun/jiantou.png) left top no-repeat;
 	background-size: 100% auto;
 }
 
@@ -744,7 +744,7 @@ img {
 	height: 100%;
 	top:0px;
 	left:0px;
-	background: url(../images/tiangong/chun/author-bg.jpg) left top no-repeat;
+	background: url(../images/tiangongv1/chun/author-bg.jpg) left top no-repeat;
 	background-size: 100% 100%;
 }
 .author-box .padd{
@@ -765,7 +765,7 @@ img {
 	line-height: 1.9rem;
 	padding:0.7rem 0;
 	width: 73%;
-	background: url(../images/tiangong/chun/author-lable-bg.png) left center no-repeat;
+	background: url(../images/tiangongv1/chun/author-lable-bg.png) left center no-repeat;
 	background-size:100% auto;
 	text-align: center;
 	color:#010101;
@@ -800,7 +800,7 @@ img {
 	background-position: center center;
 	background-size: 100% auto;
 	background-repeat: no-repeat;
-	background-image: url(../images/tiangong/handle.png);
+	background-image: url(../images/tiangongv1/handle.png);
 	position:absolute;position:absolute;top:-0.45rem;}
 .player-wrap .button{
 	display:block;width: 1.4rem;height: 1.4rem;
@@ -809,10 +809,10 @@ img {
 	background-repeat: no-repeat;
 }
 .player-wrap .on-play{
-	background-image: url(../images/tiangong/onplay.png);
+	background-image: url(../images/tiangongv1/onplay.png);
 }
 .player-wrap .on-pause{
-	background-image: url(../images/tiangong/onpause.png);
+	background-image: url(../images/tiangongv1/onpause.png);
 }
 .player-wrap .bottom-wrap {
 	display: flex;
