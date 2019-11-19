@@ -35,29 +35,132 @@
     </script>
 </head>
 <body class="chunfontbg">
+    <audio src="../../images/tiangongv1/chun/beijing.mp3" id="my_audio"></audio>
     <div class="pres-wrap maxminw">
         <img src="../../images/tiangongv1/chun/foot2.png" class="img-w">
-        <div class="infor">
-            <p>中国甲骨文、金文里，“纯”假借“屯”字，是生根发芽的意象，表示自然、简单的原生状态。金文在“屯”字上加“丝”，另造 “纯”，造字本义为未经染色的、自然状态的蚕丝。此展览篇章以汉字本源为灵感，特别邀请建筑设计师张硕炯以“丝线”作为空间元素，创造了富有极简主义的沉浸式场景。</p>
-            <p>在雷克萨斯的设计语言中，“纯”意味着通过持续精进打磨，打造   出大胆而富有张力的纯粹美感。本篇章“纯”的空间内，展出了6   件当代中国设计作品，分别来自陈旻、卢志荣、石大宇、杨泳梁、昱寒、张雷、Jovana Zhang和Christoph John。穿梭于作品之间的丝线勾画出似有似无的连接，代表着东方设计创作中传统与当代的美学、工艺、技术的文脉传承。6位艺术家设计师的创作根基于东方传统文化，在东方美学和匠艺中不断探索与创新，在单纯的理念上坚持精进打磨，塑造出富有个性的设计语言和极致纯粹美学。</p>
+        <div class="infor" style="min-height: 65%">
+            <img src="../../images/tiangongv1/chun/word.png" class="img-infor-w">
         </div>
     </div>
-    <div class="hidden" style="left:-1000%;height:0;text-indent:-99999px">
-        <audio src="../../images/tiangongv1/chun/beijing.mp3" id="music_audio" loop autoplay="autoplay" preload="auto"></audio>
+    <div class="player-wrap">
+        <div class="time_progress">
+            <div class="progress">
+                <p class="bar" id="bar"></p>
+                <div class="btn" id="btn"></div>
+            </div>
+        </div>
+        <div class="bottom-wrap">
+            <div class="contros">
+                <button class="button on-play" onClick="playPause()"></button>
+            </div>
+            <div class="time">
+                <span class="now_time" id="now_time">00:00</span>
+                <span class="all_time" id="all_time" style="display: none">00:00</span>
+            </div>
+        </div>
     </div>
-    <script type="text/javascript">
-        function audioAutoPlay(id){
-            var audio = document.getElementById(id),
-                play = function(){
-                    audio.play();
-                    document.removeEventListener("touchstart",play,false);
-                };
-            //audio.play();
-            document.addEventListener("WeixinJSBridgeReady",function(){
-                play()
-            },false);
+    <script type="text/javascript" src="../../js/lib/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    var my_audio = document.getElementById("my_audio");
+    var p_all=$(".progress").width();
+    //暂停或播放
+        function playPause()
+        { 
+            if(my_audio.paused)
+                {
+                    my_audio.play();
+                }
+                else
+                {
+                    my_audio.pause();
+                }     
         }
-        audioAutoPlay('music_audio');
-    </script>
+    //
+    my_audio.onplay=function(){
+        $(".button").attr('class','button on-pause')
+        }
+    my_audio.onpause=function(){
+        $(".button").attr('class','button on-play')
+        }       
+    //audio播放的时候实时获取当前播放时间
+        my_audio.ontimeupdate = function()
+        {
+            //获取当前播放时间
+            document.getElementById("now_time").innerHTML = timeFormat(my_audio.currentTime);
+            //当前的长度
+            now_long=my_audio.currentTime/my_audio.duration*p_all;
+            $(".bar").css({width:now_long});
+            var btn_l=now_long-10+'px';
+            $(".btn").css({left:btn_l});
+            //
+            addListenTouch()
+            
+        };
+    //页面一旦加入就获取audio的总时间
+        my_audio.onprogress = function()
+        {
+            document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);
+            //总的长度
+            
+            
+        };  
+    //时间转化
+        function myFunction() 
+        {
+        // 显示 id="now_time" 的 span 元素中音频的播放位置 
+            
+        }   
+    // Time format converter - 00:00//时间格式转换器- 00:00
+        var timeFormat = function(seconds){
+            var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+            var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+            return m+":"+s;
+        };  
+    //手动拉拽进度条的部分
+    function addListenTouch(){
+        //var speed=$('.had-play');
+        var btn=document.getElementById("btn");
+        document.getElementById("btn").addEventListener("touchstart", touchStart, false);
+        document.getElementById("btn").addEventListener("touchmove", touchMove, false);
+        document.getElementById("btn").addEventListener("touchend", touchEnd, false);
+        }
+    function touchStart(e){
+        e.preventDefault();
+        var touch=e.touches[0];
+        startX=touch.pageX;
+        my_audio.pause();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);  
+        }
+    function touchMove(e){//滑动
+        e.preventDefault();
+        var touch=e.touches[0];
+        x=touch.pageX-startX//滑动的距离
+        //btn.style.webkitTransform='translate('+0+'px,'+y+'px)';
+        var widthBar=now_long+x;
+        //
+        $(".bar").css({width:widthBar});
+        if(widthBar<p_all)
+            {
+            //  
+            $("#btn").css({left:widthBar-10+'px'});
+            $("#bar").css({width:widthBar});    
+            }//不让进度条超出页面
+        //
+        var yu=widthBar/p_all*my_audio.duration;
+        document.getElementById("now_time").innerHTML = timeFormat(yu);
+        }
+    function touchEnd(e){//手指离开屏幕
+        e.preventDefault();
+        now_long=parseInt(btn.style.left);
+        var touch=e.touches[0];
+        var dragPaddingLeft=btn.style.left;
+        var change=dragPaddingLeft.replace("px","");
+        numDragpaddingLeft=parseInt(change);
+        var currentTime=(numDragpaddingLeft/(p_all-20)*my_audio.duration);
+        my_audio.play();
+        document.getElementById("all_time").innerHTML = timeFormat(my_audio.duration);  
+        my_audio.currentTime=currentTime;
+    }
+</script>
 </body>
 </html>
