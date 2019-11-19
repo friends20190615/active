@@ -565,9 +565,9 @@ img {
 	color:#313131;
 	line-height: 1.3rem;
 	font-size: 0.63rem;
-	min-height: 72%;
-	padding:0.6rem 0;
-	margin:0 0.5rem 0.5rem 0.5rem;
+	min-height: 70%;
+	padding:1.5rem 0;
+	margin:0 0.5rem 3rem 0.5rem;
 	background: rgba(255,255,255,.74);
 }
 .pres-wrap .infor p{
@@ -577,6 +577,11 @@ img {
 }
 .pres-wrap .infor p:nth-child(1){
 	padding-top:0.9rem;
+}
+.pres-wrap .infor .img-infor-w{
+	display: block;
+	margin:0 auto;
+	width:90%;
 }
 .t_main{position:relative;background:#8bb58b;}
 .t_main.h100{height:100%}
