@@ -6,8 +6,13 @@
      font-family: 'LEXUS_HSBU'; 
      src: url('../images/tiangongv1/font/LEXUS_HSBU.eot');
      src:url('../images/tiangongv1/font/LEXUS_HSBU.woff') format('woff'),
-         url('../images/tiangongv1/font/LEXUS_HSBU.ttf') format('truetype'),
-         url('../images/tiangongv1/font/LEXUS_HSBU.svg') format('svg');
+         url('../images/tiangongv1/font/LEXUS_HSBU.ttf') format('truetype');
+}
+@font-face{
+     font-family: 'NOBK'; 
+     src: url('../images/tiangongv1/font/NOBK.eot');
+     src:url('../images/tiangongv1/font/NOBK.woff') format('woff'),
+         url('../images/tiangongv1/font/NOBK.ttf') format('truetype');
 }
 body,button,input,select,textarea {
 	font-family: LEXUS_HSBU,-apple-system,Helvetica,Hiragino Sans GB W3,Microsoft YaHei,arial,sans-serif;
@@ -61,7 +66,10 @@ input {
 	border-radius: 0;
 	-webkit-user-select: text
 }
-
+i.fanobk{
+	font-family: 'NOBK';
+	font-style: normal;
+}
 .img-w{
 	width: 100%;
 	vertical-align: middle;
@@ -601,7 +609,10 @@ img {
 	line-height: 1.5rem;
 }
 .t_mobile_form_wrap ul li.butwrap{text-align: center;padding-top:2rem;}
-.t_mobile_form_wrap input{border-radius:.3rem;height:1.9rem;border:solid 1px #919a8f;border-radius: 1.9rem;text-indent: 1rem}
+.t_mobile_form_wrap ul label{
+	font-family: 'LEXUS_HSBU';
+}
+.t_mobile_form_wrap input{border-radius:.3rem;height:1.9rem;border:solid 1px #919a8f;border-radius: 1.9rem;text-indent: 1rem;font-family: 'LEXUS_HSBU';}
 .t_mobile_form_wrap button,.t_mobile_form_wrap input{width:100%;text-align:left;font-size:.8rem;color:#000;margin-bottom:.4rem;}
 .t_mobile_form_wrap input::-webkit-input-placeholder{color:#000}
 .t_mobile_form_wrap button{width: 50%;}
@@ -613,7 +624,9 @@ img {
 	text-align: center;
 	padding-top:2rem;
 }
-.t_result_wrap b{font-size:1.2rem;font-weight: normal;display:block;text-align: center;padding:1.4rem 0;}
+.t_result_wrap b{font-size:1.2rem;font-weight: normal;display:block;text-align: center;padding:1.4rem 0;font-family: 'LEXUS_HSBU';}
+.t_result_wrap p{font-family: 'LEXUS_HSBU';}
+
 .product-list-wrap{
 	position: relative;
 }
@@ -724,9 +737,12 @@ img {
 	font-size: 0.85rem;
 	line-height: 1.5rem;
 	width: 100%;
+	font-family: 'LEXUS_HSBU';
+	text-indent: -0.4rem;
 }
 .product-box .infor-b .zuopin dd{
 	width: 50%;
+	font-family: 'LEXUS_HSBU';
 }
 .product-box .infor-b .zuopin dd.w100{
 	width: 100%
@@ -739,9 +755,11 @@ img {
 .product-box .infor-b .jieshao dt{
 	color:#404040;
 	padding-bottom:0.3rem;
+	font-family: 'LEXUS_HSBU';
 }
 .product-box .infor-b .jieshao dd{
 	color:#545454;
+	font-family: 'LEXUS_HSBU';
 }
 .author-box{
 	position: absolute;
@@ -776,6 +794,7 @@ img {
 	color:#010101;
 	font-size: 1rem;
 	text-shadow:0px 0px 1px #333333;
+	font-family: 'LEXUS_HSBU';
 }
 .author-box .infor-b dd{
 	font-size: 0.5rem;
@@ -784,6 +803,7 @@ img {
 	min-height: 5.5rem;
 	background: #c0d2bb;
 	color:#545454;
+	font-family: 'LEXUS_HSBU';
 }
 .player-wrap{
 	position:fixed;
