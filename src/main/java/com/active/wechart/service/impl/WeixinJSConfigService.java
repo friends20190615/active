@@ -28,7 +28,7 @@ public class WeixinJSConfigService implements IWeixinJSConfigService {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     private String appId = "wx34cbd241a9ed60ff";
 
-    private String appSecret = "APPSECRET 96c448ebb25d7f50f44b2a0c43ce92fb";
+    private String appSecret = "96c448ebb25d7f50f44b2a0c43ce92fb";
 
     private String accessTokenUrl="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
 
