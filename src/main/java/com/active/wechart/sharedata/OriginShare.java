@@ -33,7 +33,7 @@ public class OriginShare {
 			if (title != null) {
 				weixinShareData.setShareTitle(title);
 			}
-			weixinShareData.setUrl(URLDecoder.decode(shareUrl));
+			weixinShareData.setUrl(shareUrl);
 			if (content != null) {
 				weixinShareData.setShareWXContent(content);
 				if (pyqcontent != null && !"".equals(pyqcontent)) {
