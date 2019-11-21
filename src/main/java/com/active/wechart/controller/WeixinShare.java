@@ -26,7 +26,7 @@ public class WeixinShare {
         JSONResult<Object> result = JSONResult.getCommonResult(null);
         WeixinShareData weixinShareData;
         weixinShareData = OriginShare.OriginShareMethod(mobile, url, origin);
-        WeixinJSConfigVO weixinJSConfigVO =  weixinJSConfigService.getWeixinJSConfig(weixinShareData.getUrl());;
+        WeixinJSConfigVO weixinJSConfigVO =  weixinJSConfigService.getWeixinJSConfig(url);;
         weixinShareData.setWeixinJSConfigVO(weixinJSConfigVO);
         result.setResult(weixinShareData);
         result.setStatus(JSONResult.SUCCUESS_CODE);
