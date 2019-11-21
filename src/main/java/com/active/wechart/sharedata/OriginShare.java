@@ -33,13 +33,7 @@ public class OriginShare {
 			if (title != null) {
 				weixinShareData.setShareTitle(title);
 			}
-			if(shareUrl != null && StringUtils.isNotBlank(mobile)
-					&& origin.equals("myflairlx") && StringUtils.isBlank(EncryptUtils.decrypt(EncryptUtils.LX_KEY,mobile))){
-				shareUrl = MessageFormat.format(shareUrl, EncryptUtils.encrypt(EncryptUtils.LX_KEY,mobile));
-				weixinShareData.setUrl(shareUrl);
-			}else{
-				weixinShareData.setUrl(URLDecoder.decode(url));
-			}
+			weixinShareData.setUrl(shareUrl);
 			if (content != null) {
 				weixinShareData.setShareWXContent(content);
 				if (pyqcontent != null && !"".equals(pyqcontent)) {
